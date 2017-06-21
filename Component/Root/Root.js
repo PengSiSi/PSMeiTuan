@@ -9,8 +9,23 @@ import HomeScreen from './../Sections/Home/Home';
 import OrderScreen from './../Sections/Order/Order';
 import NearByScreen from './../Sections/NearBy/NearBy';
 import MineScreen from './../Sections/Mine/Mine';
-
 import TabBarItem from './../Common/TabBarItem';
+import GroupPurchaseScene from './../Sections/GroupPurchase/GroupPurchase';
+import WebScene from './../Common/DetailWebScene';
+
+const lightContentScenes = ['Home', 'Mine']
+
+function getCurrentRouteName(navigationState) {
+    if (!navigationState) {
+        return null;
+    }
+    const route = navigationState.routes[navigationState.index];
+    // dive into nested navigators
+    if (route.routes) {
+        return getCurrentRouteName(route);
+    }
+    return route.routeName;
+}
 
 export default class Root extends Component {
 
@@ -22,7 +37,20 @@ export default class Root extends Component {
 
     render() {
         return (
-            <Navigator/>
+            <Navigator
+                onNavigationStateChange={
+                    (prevState, currentState) => {
+                        const currentScene = getCurrentRouteName(currentState);
+                        const previousScene = getCurrentRouteName(prevState);
+                        if (previousScene !== currentScene) {
+                            if (lightContentScenes.indexOf(currentScene) >= 0) {
+                                StatusBar.setBarStyle('light-content')
+                            } else {
+                                StatusBar.setBarStyle('dark-content')
+                            }
+                        }
+                    }
+                }/>
         );
     }
 }
@@ -106,6 +134,8 @@ const Tab = TabNavigator(
 const Navigator = StackNavigator(
     {
         Tab: { screen: Tab },
+        GroupPurchase: { screen: GroupPurchaseScene },
+        WebPage: {screen: WebScene}
     },
     {
         navigationOptions: {

@@ -18,7 +18,6 @@ export default class Loading extends React.Component {
         isShow: React.PropTypes.bool
     }
 
-
     render() {
         if (!this.props.isShow) return null;
 

@@ -1,46 +1,16 @@
 /**
- * Created by 思思 on 17/6/17.
- * 
- <NavigationItem
-    title='福州'
-    icon={require('../../img/Home/icon_navigationItem_message_white@2x.png')}
-    titleStyle={{ color: 'white' }}
-    iconStyle={{ color: 'white' }}
-    onPress={() => {
-    }}
- />
+ * Copyright (c) 2017-present, Liu Jinyong
+ * All rights reserved.
+ *
+ * @flow
  */
 
-import React, { PureComponent } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+//import liraries
+import React, { PureComponent } from 'react'
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
 
 // create a component
-export default class NavigationItem extends PureComponent {
-
-   constructor() {
-      super();
-
-    };
-
-    // 消除警告
-    // static propTypes = {
-    //     icon: React.PropTypes.element,
-    //     title: React.PropTypes.string,
-    //     iconStyle: React.PropTypes.style,
-    //     titleStyle: React.PropTypes.style,
-    //     onPress: React.PropTypes.func
-    // };
-
-   static defaultProps = {
-        icon: '',
-        /**注意:不能写这句,否则报错
-         *  title: '',
-         */
-        iconStyle: {},
-        titleStyle: {},
-        onPress: null
-    }
-    
+class NavigationItem extends PureComponent {
     render() {
         let icon = this.props.icon &&
             <Image style={[styles.icon, this.props.iconStyle]} source={this.props.icon} />
@@ -56,8 +26,8 @@ export default class NavigationItem extends PureComponent {
     }
 }
 
+// define your styles
 const styles = StyleSheet.create({
-    
     container: {
         flex:1,
         flexDirection: 'row',
@@ -75,3 +45,6 @@ const styles = StyleSheet.create({
         margin: 8,
     }
 });
+
+//make this component available to the app
+export default NavigationItem;

@@ -23,6 +23,9 @@ export default class extends Component {
 
     static navigationOptions = ({navigation,screenProps}) => ({  
         headerTitle: '我的', 
+        headerTitleStyle: {
+            color: 'white'
+        },
         headerStyle: {
             backgroundColor: Color.kMainColor  // 设置导航栏的背景颜色,headerTintColor设置无效
         },

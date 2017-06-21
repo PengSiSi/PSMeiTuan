@@ -9,7 +9,7 @@ import PageControl from './../../Common/PageControl';
 class HomeMenuItem extends PureComponent {
     render() {
         return(
-            <TouchableOpacity style={styles.container}
+            <TouchableOpacity style={styles.menuItemContainer}
                 onPress={this.props.onPress}>
                 <Image source={this.props.icon} resizeMode='contain' style={styles.iconStyle} />
                 <Text>
@@ -20,8 +20,8 @@ class HomeMenuItem extends PureComponent {
     }
 }
 
-export class HomeMenuView extends PureComponent {
-    constructor() {
+export default class HomeMenuView extends PureComponent {
+    constructor(props) {
         super(props)
         this.state = {
             currentPage: 0
@@ -73,7 +73,7 @@ export class HomeMenuView extends PureComponent {
                     currentPage={this.state.currentPage}
                     hidesForSinglePage
                     pageIndicatorTintColor='gray'
-                    currentPageIndicatorTintColor={color.theme}
+                    currentPageIndicatorTintColor={Color.kMainColor}
                     indicatorSize={{ width: 8, height: 8 }}
                 />
             </View>
@@ -82,7 +82,7 @@ export class HomeMenuView extends PureComponent {
 
     onScroll(e) {
         let x = e.nativeEvent.contentOffset.x
-        let currentPage = Math.round(x / screen.width)
+        let currentPage = Math.round(x / Space.kScreenWidth)
         console.log('onScroll  ' + e.nativeEvent.contentOffset.x + '  page ' + currentPage + '  current ' + this.state.currentPage)
         if (this.state.currentPage != currentPage) {
             this.setState({
@@ -95,6 +95,9 @@ export class HomeMenuView extends PureComponent {
 // define your styles
 const styles = StyleSheet.create({
     container: {
+        backgroundColor: 'white',
+    },
+    menuItemContainer: {
         justifyContent: 'center',
         alignItems: 'center',
         width: Space.kScreenWidth / 5,
@@ -111,7 +114,7 @@ const styles = StyleSheet.create({
     itemsView: {
         flexDirection: 'row',
         flexWrap: 'wrap',
-        width: screen.width,
+        width: Space.kScreenWidth,
     },
     pageControl: {
         margin: 10,

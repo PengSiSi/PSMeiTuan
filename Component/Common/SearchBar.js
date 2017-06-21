@@ -8,13 +8,13 @@ import { StyleSheet, View, TextInput, TouchableOpacity, Text, Image, Keyboard, p
 
 class SearchBar extends PureComponent {
 
-    // static propTypes = {
-    //     // onSubmitEditing: React.propTypes.func,
-    //     text: React.propTypes.string,
-    //     onChangeText: React.propTypes.func,
-    //     onSubmit: React.propTypes.func,
-    //     style: React.propTypes.Object
-    // };
+    static propTypes = {
+        onSubmitEditing: React.PropTypes.func,
+        text: React.PropTypes.string,
+        onChangeText: React.PropTypes.func,
+        onSubmit: React.PropTypes.func,
+        style: View.propTypes.style
+    };
 
    static defaultProps = {
         onSubmitEditing: null,
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         backgroundColor: '#e4e4e4',
-        borderRadius: 5,
+        borderRadius: 10,
     },
     icon: {
         marginLeft: 10,
@@ -121,6 +121,7 @@ const styles = StyleSheet.create({
     input: {
         flex: 1,
         marginHorizontal: 5,
+        fontSize: 15
     }
 });
 
