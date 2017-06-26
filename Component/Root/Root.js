@@ -12,6 +12,9 @@ import MineScreen from './../Sections/Mine/Mine';
 import TabBarItem from './../Common/TabBarItem';
 import GroupPurchaseScene from './../Sections/GroupPurchase/GroupPurchase';
 import WebScene from './../Common/DetailWebScene';
+import SettingScene from './../Sections/Setting/Setting';
+
+import ScrollTabViewDemo from './../Sections/Setting/Demos/ScrollableTabViewSDemo';
 
 const lightContentScenes = ['Home', 'Mine']
 
@@ -135,7 +138,9 @@ const Navigator = StackNavigator(
     {
         Tab: { screen: Tab },
         GroupPurchase: { screen: GroupPurchaseScene },
-        WebPage: {screen: WebScene}
+        WebPage: {screen: WebScene},
+        Setting: {screen: SettingScene},
+        ScrollTabViewPage: {screen: ScrollTabViewDemo}
     },
     {
         navigationOptions: {

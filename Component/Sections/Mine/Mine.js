@@ -18,6 +18,7 @@ import Color from './../../Config/Color';
 import Space from './../../Config/Space';
 import MineCell from './MineCell';
 import SpaceView from './../../Common/SpaceView';
+import Setting from './../Setting/Setting';
 
 export default class extends Component {
 
@@ -34,7 +35,7 @@ export default class extends Component {
                 <NavigationItem
                     icon={require('./../../Images/Mine/icon_navigationItem_set_white.png')}
                     onPress={() => {
-
+                        navigation.navigate('Setting');
                     }}
                 />
                 <NavigationItem
