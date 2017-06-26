@@ -13,6 +13,7 @@ import TabBarItem from './../Common/TabBarItem';
 import GroupPurchaseScene from './../Sections/GroupPurchase/GroupPurchase';
 import WebScene from './../Common/DetailWebScene';
 import SettingScene from './../Sections/Setting/Setting';
+import Login from './../Sections/Login/Login';
 
 import ScrollTabViewDemo from './../Sections/Setting/Demos/ScrollableTabViewSDemo';
 
@@ -57,6 +58,42 @@ export default class Root extends Component {
         );
     }
 }
+
+//// 为了实现登录的modal效果,所以将Main页面单独拆分出来.
+const MineStack = StackNavigator({
+    Mine:{
+        screen:MineScreen,
+        navigationOptions: ({ navigation }) => ({
+            tabBarLabel: '我的',
+            tabBarIcon: ({ focused, tintColor }) => (
+                <TabBarItem
+                    tintColor={tintColor}
+                    focused={focused}
+                    normalImage={require('./../Images/tabbar/pfb_tabbar_mine@2x.png')}
+                    selectedImage={require('./../Images/tabbar/pfb_tabbar_mine_selected@2x.png')}
+                />
+            )
+        }),
+    },
+    Login:{
+        screen:Login,
+        headerBackTitle: false,
+        // 这里需要设置和Mine一样的navigationOptions,否则Modal到登录页底部的TabbarItem会消失
+        navigationOptions: ({ navigation }) => ({
+            tabBarLabel: '我的',
+            tabBarIcon: ({ focused, tintColor }) => (
+                <TabBarItem
+                    tintColor={tintColor}
+                    focused={focused}
+                    normalImage={require('./../Images/tabbar/pfb_tabbar_mine@2x.png')}
+                    selectedImage={require('./../Images/tabbar/pfb_tabbar_mine_selected@2x.png')}
+                />
+            )
+        }),
+    }
+},{
+    mode:'modal',
+});
 
 const Tab = TabNavigator(
     {
@@ -105,18 +142,21 @@ const Tab = TabNavigator(
         },
 
         Mine: {
-            screen: MineScreen,
-            navigationOptions: ({ navigation }) => ({
-                tabBarLabel: '我的',
-                tabBarIcon: ({ focused, tintColor }) => (
-                    <TabBarItem
-                        tintColor={tintColor}
-                        focused={focused}
-                        normalImage={require('./../Images/tabbar/pfb_tabbar_mine@2x.png')}
-                        selectedImage={require('./../Images/tabbar/pfb_tabbar_mine_selected@2x.png')}
-                    />
-                )
-            }),
+            screen: MineStack,
+            // navigationOptions: ({ navigation }) => ({
+            //     tabBarLabel: '我的',
+            //     tabBarIcon: ({ focused, tintColor }) => (
+            //         <TabBarItem
+            //             tintColor={tintColor}
+            //             focused={focused}
+            //             normalImage={require('./../Images/tabbar/pfb_tabbar_mine@2x.png')}
+            //             selectedImage={require('./../Images/tabbar/pfb_tabbar_mine_selected@2x.png')}
+            //         />
+            //     )
+            // }),
+            navigationOptions:{
+            header:null
+        }
         },
     },
     {

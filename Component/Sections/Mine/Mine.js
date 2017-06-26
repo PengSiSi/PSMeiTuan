@@ -104,13 +104,14 @@ export default class extends Component {
                             <Text style={{ color: 'white' }}>思思</Text>
                                 <Image style={{ marginLeft: 4 }} source={require('./../../Images/Mine/beauty_technician_v15@2x.png')}/>
                         </View>
-                        <Text style={{ color: 'white', marginTop: 4 }}>个人信息 ></Text>
+                        <Text style={{ color: 'white', marginTop: 4 }} onPress = {()=> {this.jumpTologinPage()}}>个人信息></Text>
                     </View>
                 </View>
             </View>
         )
     }
 
+    // 选择相册,拍照
     pickerAvatarImage() {
         // alert('选择图片');
         ImagePicker.showImagePicker(photoOptions, (response) => {
@@ -129,6 +130,22 @@ export default class extends Component {
             avatarSource: source
             });
         }
+        });
+    }
+
+    // 跳转到登录页
+    jumpTologinPage() {
+        // alert('跳转到登录页');
+        const { navigate } = this.props.navigation;
+        // callback是登录页的回调传值
+        navigate('Login',{
+            callback: (data)=>{
+                console.log(data);
+                this.setState({
+                    userInfoData:data
+                })
+            },
+            title:'登录'
         });
     }
 
