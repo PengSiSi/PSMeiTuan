@@ -10,7 +10,8 @@ import {
     View,
     RefreshControl,
     ScrollView,
-    Image
+    Image,
+    TouchableOpacity
 } from 'react-native';
 
 import NavigationItem from './../../Common/NavigationItem';
@@ -19,6 +20,22 @@ import Space from './../../Config/Space';
 import MineCell from './MineCell';
 import SpaceView from './../../Common/SpaceView';
 import Setting from './../Setting/Setting';
+import ImagePicker from 'react-native-image-picker';
+
+// 底部弹出框文字
+let photoOptions = {
+    title: '选择照片',
+    cancelButtonTitle:'取消',
+    takePhotoButtonTitle:'拍照',
+    chooseFromLibraryButtonTitle:'选择相册',
+    quality:0.75,
+    allowsEditing:true,
+    noData:false,
+    storageOptions: {
+        skipBackup: true,
+        path: 'images'
+    }
+};
 
 export default class extends Component {
 
@@ -47,6 +64,13 @@ export default class extends Component {
         ),
     }); 
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            avatarSource: require('./../../Images/Mine/avatar.png')
+        };
+    }
+
     render() {
         return (
             <View style={{ flex: 1, backgroundColor: 'white' }}>
@@ -70,19 +94,42 @@ export default class extends Component {
         return(
             <View style={styles.headerStyle}>
                 <View style={styles.userContainerStyle}>
-                    <Image style={styles.avatarStyle} 
-                           source={require('./../../Images/Mine/avatar.png')}>
-                    </Image>
+                    <TouchableOpacity onPress = {()=>{this.pickerAvatarImage()}}>
+                        <Image style={styles.avatarStyle} 
+                            source={this.state.avatarSource}>
+                        </Image>
+                    </TouchableOpacity>
                     <View>
                         <View style={{flexDirection: 'row'}}>
                             <Text style={{ color: 'white' }}>思思</Text>
-                            <Image style={{ marginLeft: 4 }} source={require('./../../Images/Mine/beauty_technician_v15@2x.png')}/>
+                                <Image style={{ marginLeft: 4 }} source={require('./../../Images/Mine/beauty_technician_v15@2x.png')}/>
                         </View>
                         <Text style={{ color: 'white', marginTop: 4 }}>个人信息 ></Text>
                     </View>
                 </View>
             </View>
         )
+    }
+
+    pickerAvatarImage() {
+        // alert('选择图片');
+        ImagePicker.showImagePicker(photoOptions, (response) => {
+        console.log('Response = ', response);
+        if (response.didCancel) {
+            console.log('User cancelled image picker');
+        } else if (response.error) {
+            console.log('ImagePicker Error: ', response.error);
+        } else if (response.customButton) {
+            console.log('User tapped custom button: ', response.customButton);
+        } else {
+            let source = { uri: response.uri };
+            // You can also display the image using data:
+            // let source = { uri: 'data:image/jpeg;base64,' + response.data };
+            this.setState({
+            avatarSource: source
+            });
+        }
+        });
     }
 
     renderCells() {
