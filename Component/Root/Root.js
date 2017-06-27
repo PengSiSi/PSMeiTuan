@@ -16,6 +16,7 @@ import SettingScene from './../Sections/Setting/Setting';
 import Login from './../Sections/Login/Login';
 import ScrollTabViewDemo from './../Sections/Setting/Demos/ScrollableTabViewSDemo';
 import MultipleSelectedDemo from './../Sections/Setting/Demos/MultipleSelected';
+import CalendarDemo from './../Sections/Setting/Demos/CalendarDemo';
 
 const lightContentScenes = ['Home', 'Mine']
 
@@ -181,7 +182,8 @@ const Navigator = StackNavigator(
         WebPage: {screen: WebScene},
         Setting: {screen: SettingScene},
         ScrollTabViewPage: {screen: ScrollTabViewDemo},
-        MultipleSelectedPage: {screen: MultipleSelectedDemo}
+        MultipleSelectedPage: {screen: MultipleSelectedDemo},
+        CalendarPage: {screen: CalendarDemo}
     },
     {
         navigationOptions: {

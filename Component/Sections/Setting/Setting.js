@@ -32,7 +32,8 @@ export default class extends Component {
     this.state = {
       dataSource: ds.cloneWithRows([
         '1.ScrollableTabViewSDemo',
-        '2.ListView多选实现'
+        '2.ListView多选实现',
+        '3.日历的使用'
       ])
     };
     this.renderRow = this.renderRow.bind(this);
@@ -68,6 +69,10 @@ export default class extends Component {
         }
         case '1': {
           this.props.navigation.navigate('MultipleSelectedPage')
+            break;
+        }
+        case '2': {
+          this.props.navigation.navigate('CalendarPage')
             break;
         }
         default:

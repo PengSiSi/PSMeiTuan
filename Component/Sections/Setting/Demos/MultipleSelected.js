@@ -39,10 +39,10 @@ export default class extends Component {
             title='完成'
             // 这里注意: static里面不能使用this调用方法,出现clickFinishButton is not function
             // 参考博客: http://www.jianshu.com/p/2f575cc35780
-            // onPress={navigation.state.params.clickFinishButton}
-            onPress = {()=>{
-                alert('选择了'+selectedItem.length+'个');
-            }}
+            onPress={navigation.state.params.myparams}
+            // onPress = {()=>{
+            //     alert('选择了'+selectedItem.length+'个');
+            // }}
         />
     )
   });
@@ -133,18 +133,23 @@ export default class extends Component {
   }
 
   // 点击完成按钮
-  /*clickFinishButton = ()=> {
-      let data = this.state.dataArr;
-      let selectResultArr = [];
-      for (var index in data) {
-            var element = object[index];
-            if (element.isSelected) {
-                selectResultArr.push(element);
-            }
-      }
-      alert(selectResultArr.length);
+  clickFinishButton = ()=> {
+      alert('哈哈');
+    //   let data = this.state.dataArr;
+    //   let selectResultArr = [];
+    //   for (var index in data) {
+    //         var element = object[index];
+    //         if (element.isSelected) {
+    //             selectResultArr.push(element);
+    //         }
+    //   }
+    //   alert(selectResultArr.length);
   }
-  */
+
+  componentWillMount() {
+       this.props.navigation.setParams({myparams:this.clickFinishButton})
+    }
+
 
   // 从数组删除元素
   removeByValue=(arr, val) =>{
