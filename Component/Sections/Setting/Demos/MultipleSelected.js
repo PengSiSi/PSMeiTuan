@@ -1,123 +1,166 @@
 /**
  * Created by 思思 on 17/5/7.
  */
-import React, { Component } from 'react';
+import React, {
+  Component
+} from 'react';
 import {
-    AppRegistry,
-    StyleSheet,
-    Text,
-    View,
-    ListView,
-    PixelRatio,
-    TouchableOpacity,
-    Image
+  AppRegistry,
+  StyleSheet,
+  Text,
+  View,
+  ListView,
+  PixelRatio,
+  TouchableOpacity,
+  Image
 } from 'react-native';
 
 import Color from './../../../Config/Color';
 import Space from './../../../Config/Space';
 import PersonJson from './../../../Resource/Person.json';
 import Button from './../../../Common/Button';
+import NavigationItem from './../../../Common/NavigationItem';
 
-var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-
+var selectedItem;  // 当前所有的选择的
 export default class extends Component {
-    static navigationOptions = ({navigation,screenProps}) => ({  
-        headerTitle: 'List实现多选', 
-        headerTitleStyle: {
-            color: 'white'
-        },
-        headerStyle: {
-            backgroundColor: Color.kMainColor  // 设置导航栏的背景颜色,headerTintColor设置无效
-        },
-    }); 
+  static navigationOptions = ({
+    navigation,
+    screenProps
+  }) => ({
+    headerTitle: 'List实现多选',
+    headerTitleStyle: {
+      color: 'white'
+    },
+    headerStyle: {
+      backgroundColor: Color.kMainColor // 设置导航栏的背景颜色,headerTintColor设置无效
+    },
+    headerRight:(
+        <NavigationItem
+            title='完成'
+            // 这里注意: static里面不能使用this调用方法,出现clickFinishButton is not function
+            // 参考博客: http://www.jianshu.com/p/2f575cc35780
+            // onPress={navigation.state.params.clickFinishButton}
+            onPress = {()=>{
+                alert('选择了'+selectedItem.length+'个');
+            }}
+        />
+    )
+  });
 
-    constructor(props) {
-        super(props);
-        //此代码是核心,不这样,数据不显示
-        this.data = PersonJson;
-        this.state = {
-            dataSource: ds.cloneWithRows(this.data),  // 数据源
-            selectItem:[],
-        };
-        this.renderRow = this.renderRow.bind(this);
-        // this.didClickSelect = this.didClickSelect.bind(this);
-    }
-
-    render() {
-        return (
-           <ListView
-                dataSource={this.state.dataSource}
-                renderRow={this.renderRow}
-                enableEmptySections
-           />
-        );
-    }
-
-    renderRow(rowData) {
-      let selelctIcon = rowData.isSelected
-                        ? require('./../../../Images/Mine/click@2x.png')
-                        : require('./../../../Images/Mine/not_click@2x.png');
-      return(
-          // 注意调用this问题,否则出现this.setstate is not a function错误...
-          <TouchableOpacity onPress={this.didClickSelect.bind(rowData,this)}>
-            <View style = {styles.cellStyle}>
-                <Image source={selelctIcon}
-                       style={styles.iconButtonStyle}>
-                </Image>
-                <Text style = {styles.cellTextStyle}>
-                {rowData.studentName}
-                </Text>
-            </View>
-          </TouchableOpacity>
-      )
+  constructor(props) {
+    super(props);
+    //此代码是核心,不这样,数据不显示
+    this.data = PersonJson;
+    this.state = {
+      dataArr:PersonJson,
+      selectItem: [],
+    };
   }
 
-    componentDidMount() {
-        // 处理数据源
-        this.handlerDataSource();
-        this.setState = ({
-            dataSource: ds.cloneWithRows(this.data)
-        });
-    }
+  render() {
+    var ds = new ListView.DataSource({
+      rowHasChanged: (r1, r2) => r1 !== r2
+    });
+    return (
+      <ListView
+          dataSource={ds.cloneWithRows(this.state.dataArr)}
+          renderRow={this._renderRow.bind(this)}
+          enableEmptySections
+      />
+    );
+  }
+  _renderRow(rowData) {
+    let selelctIcon = rowData.isSelected ? require('./../../../Images/Mine/click@2x.png') : require('./../../../Images/Mine/not_click@2x.png');
+    return (
+      // 注意调用this问题,否则出现this.setstate is not a function错误...
+      <TouchableOpacity onPress={this.didClickSelect.bind(this,rowData)}>
+        <View style = {styles.cellStyle}>
+          <Image source={selelctIcon} style={styles.iconButtonStyle}/>
+          <Text style = {styles.cellTextStyle}>
+            {rowData.studentName}
+          </Text>
+        </View>
+      </TouchableOpacity>
+    )
+  }
 
-    handlerDataSource() {
-        for (var index in this.data) {
-            var element = this.data[index];
-            element.isSelected = false;
-            console.log('dataSource'+element);
+  componentDidMount(){
+       // 处理数据源
+    this.handlerDataSource();
+
+    // this.props.navigation.setParams({
+    //     title:'自定义Header',
+    //     clickFinishButton:this.clickFinishButton
+    // })
+  }
+
+  // 处理数据源数据,添加isSelected标示
+  handlerDataSource() {
+    var tempArr = [];
+    for (var index in this.state.dataArr) {
+      var element = this.state.dataArr[index];
+      element.isSelected = false;
+      tempArr[index] = element;
+    }
+    // 注意: 重新setState,渲染视图
+    this.setState({dataArr:tempArr});
+  }
+
+  // 点击每一行
+  didClickSelect(rowData) {
+    var _this = this;
+    // alert(this.state.selectItem.length);
+    let array = this.state.dataArr.slice();
+    let item = [];
+    for (let i = 0; i < array.length; i++) {
+      if (array[i].studentId === rowData.studentId) {
+        if (array[i].isSelected) {  // 选中
+          array[i].isSelected = false;
+            item = this.removeByValue(this.state.selectItem,array[i].studentId);
+            if(!item){
+                item = [];
+            }
+        } else {
+          array[i].isSelected = true;
+          item = this.state.selectItem.concat(array[i]);
         }
+      }
     }
+    this.state.dataArr = array;
+    // 赋给外面的全局变量,传递出去
+    selectedItem = item;
+    _this.setState({selectItem:item});
+  }
 
-    componentWillUnmount() {
+  // 点击完成按钮
+  /*clickFinishButton = ()=> {
+      let data = this.state.dataArr;
+      let selectResultArr = [];
+      for (var index in data) {
+            var element = object[index];
+            if (element.isSelected) {
+                selectResultArr.push(element);
+            }
+      }
+      alert(selectResultArr.length);
+  }
+  */
 
-    }
-
-    didClickSelect = (rowData)=> {
-        // alert(rowData.studentName);
-        alert(this.state);
-        let array = this.data.slice();
-        let item=[];
-        for (let i = 0; i < array.length; i++) {
-                if (array[i].studentId === rowData.studentId) {
-                   if(array[i].isSelected){
-                       array[i].isSelected = false;
-                   } else{
-                       array[i].isSelected = true;
-                   }
+  // 从数组删除元素
+  removeByValue=(arr, val) =>{
+        if(arr.length>0){
+            for(var i=0; i<arr.length; i++) {
+                if(arr[i].studentId === val) {
+                // splice() 方法向/从数组中添加/删除项目，然后返回被删除的项目。该方法会改变原始数组。
+                 return arr.splice(i, 1);
                 }
-                console.log( array[i].isSelected);
+            }
         }
-        this.data = array;
-
-        this.setState({
-            selectItem:[],
-            dataSource: ds.cloneWithRows(this.data),
-        });
     }
 }
 
 const styles = StyleSheet.create({
-    container: {
+  container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
@@ -125,7 +168,7 @@ const styles = StyleSheet.create({
   },
   // cell
   cellStyle: {
-    borderBottomWidth: 1/PixelRatio.get(),
+    borderBottomWidth: 1 / PixelRatio.get(),
     borderBottomColor: '#666',
     flexDirection: 'row',
     padding: 10
@@ -134,8 +177,8 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   cellTextStyle: {
-      marginLeft: 20,
-      fontSize: 17,
-      textAlign: 'center'
+    marginLeft: 20,
+    fontSize: 17,
+    textAlign: 'center'
   }
 });
