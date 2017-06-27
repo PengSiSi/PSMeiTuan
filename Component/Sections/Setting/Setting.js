@@ -32,6 +32,7 @@ export default class extends Component {
     this.state = {
       dataSource: ds.cloneWithRows([
         '1.ScrollableTabViewSDemo',
+        '2.ListView多选实现'
       ])
     };
     this.renderRow = this.renderRow.bind(this);
@@ -61,10 +62,14 @@ export default class extends Component {
   // push操作
   pushToNextPage(rowData, sectionID, rowID, highlightRow) {
     switch (rowID) {  // 注意switch里rowID需要比较的是字符串
-        case '0':
-        alert(this.props.navigation);
-            this.props.navigation.navigate('ScrollTabViewPage')
+        case '0': {
+           this.props.navigation.navigate('ScrollTabViewPage')
             break;
+        }
+        case '1': {
+          this.props.navigation.navigate('MultipleSelectedPage')
+            break;
+        }
         default:
             break;
     }

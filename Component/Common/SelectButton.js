@@ -44,7 +44,6 @@ export default class EditView extends Component {
     }
 
     selelctButtonDidClick() {
-        // alert(this.state.selectedFlag);
         this.setState({selectedFlag: !this.state.selectedFlag});
         this.props.onPressCallback(this.state.selectedFlag);
     }

@@ -14,8 +14,8 @@ import GroupPurchaseScene from './../Sections/GroupPurchase/GroupPurchase';
 import WebScene from './../Common/DetailWebScene';
 import SettingScene from './../Sections/Setting/Setting';
 import Login from './../Sections/Login/Login';
-
 import ScrollTabViewDemo from './../Sections/Setting/Demos/ScrollableTabViewSDemo';
+import MultipleSelectedDemo from './../Sections/Setting/Demos/MultipleSelected';
 
 const lightContentScenes = ['Home', 'Mine']
 
@@ -180,7 +180,8 @@ const Navigator = StackNavigator(
         GroupPurchase: { screen: GroupPurchaseScene },
         WebPage: {screen: WebScene},
         Setting: {screen: SettingScene},
-        ScrollTabViewPage: {screen: ScrollTabViewDemo}
+        ScrollTabViewPage: {screen: ScrollTabViewDemo},
+        MultipleSelectedPage: {screen: MultipleSelectedDemo}
     },
     {
         navigationOptions: {
