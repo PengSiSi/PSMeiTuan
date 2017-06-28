@@ -15,7 +15,7 @@ import Color from './../../Config/Color';
 
 export default class extends Component {
 
-    static navigationOptions = ({navigation,screenProps}) => ({  
+  static navigationOptions = ({navigation,screenProps}) => ({  
         headerTitle: '封装组件Demo', 
         headerTitleStyle: {
             color: 'white'
@@ -33,7 +33,8 @@ export default class extends Component {
       dataSource: ds.cloneWithRows([
         '1.ScrollableTabViewSDemo',
         '2.ListView多选实现',
-        '3.日历的使用'
+        '3.日历的使用',
+        '4.我的申请页面'
       ])
     };
     this.renderRow = this.renderRow.bind(this);
@@ -74,6 +75,10 @@ export default class extends Component {
         case '2': {
           this.props.navigation.navigate('CalendarPage')
             break;
+        }
+        case '3': {
+          this.props.navigation.navigate('MyApplyPage')
+          break;
         }
         default:
             break;

@@ -146,7 +146,8 @@ const styles = StyleSheet.create({
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: '#666',
     flexDirection: 'row',
-    padding: 10
+    padding: 10,
+    backgroundColor: 'white'
 },
   cellTextStyle: {
       fontSize: 17,
@@ -155,5 +156,8 @@ const styles = StyleSheet.create({
 calendarStyle: {
     width: Space.kScreenWidth,
     height: 300,
+    // 设置分割线
+    borderBottomColor: 'gray',
+    borderBottomWidth: StyleSheet.hairlineWidth
 }
 });
