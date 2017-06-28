@@ -7,6 +7,7 @@
 		"test": "jest"
 	},
 	"dependencies": {
+		"antd-mobile": "^1.4.0",
 		"react": "16.0.0-alpha.6",
 		"react-native": "0.44",
 		"react-native-calendars": "^1.4.0",
@@ -19,6 +20,7 @@
 	},
 	"devDependencies": {
 		"babel-jest": "20.0.3",
+		"babel-plugin-import": "^1.2.1",
 		"babel-preset-react-native": "2.0.0",
 		"jest": "20.0.4",
 		"react-test-renderer": "16.0.0-alpha.12"

@@ -1,6 +1,8 @@
 /**
  * Created by 思思 on 17/5/7.
+ * 开发文档:  https://mobile.ant.design/docs/react/introduce
  */
+
 import React, { Component } from 'react';
 import {
     AppRegistry,
@@ -29,7 +31,9 @@ export default class extends Component {
             <View style={styles.container}>
                 <Text style = {styles.titleTipStyle}>{this.props.title}</Text>
                 <TextInput style = {styles.inputStyle} placeholder={this.props.placeholder}
-                           onChangeText={(text) => this.props.onChangeText({text})}>
+                           onChangeText={(text) => this.props.onChangeText({text})}
+                           editable={this.props.editable}
+                           value={this.props.value}>
                 </TextInput>
                 <TouchableOpacity style={{width: 30, height: 30, alignItems: 'center',flexDirection: 'row'}}
                                   onPress={this.props.onPress}
