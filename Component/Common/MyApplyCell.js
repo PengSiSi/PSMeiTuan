@@ -1,6 +1,5 @@
 /**
  * Created by 思思 on 17/5/7.
- * 开发文档:  https://mobile.ant.design/docs/react/introduce
  */
 
 import React, { Component } from 'react';

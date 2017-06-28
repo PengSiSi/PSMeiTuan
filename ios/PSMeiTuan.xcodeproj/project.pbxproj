@@ -38,6 +38,10 @@
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		F10AD9591F036F56002DC6F1 /* libRCTBEEPickerManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F10AD9361F035AE9002DC6F1 /* libRCTBEEPickerManager.a */; };
+		F10AD95D1F038DBC002DC6F1 /* ReactView.m in Sources */ = {isa = PBXBuildFile; fileRef = F10AD95C1F038DBC002DC6F1 /* ReactView.m */; };
+		F10AD9611F039010002DC6F1 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F10AD9601F039010002DC6F1 /* TestViewController.m */; };
+		F10AD9641F0390DA002DC6F1 /* PushNative.m in Sources */ = {isa = PBXBuildFile; fileRef = F10AD9631F0390DA002DC6F1 /* PushNative.m */; };
+		F10AD9671F039E12002DC6F1 /* NextRNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F10AD9661F039E12002DC6F1 /* NextRNViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -274,6 +278,14 @@
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		BF77D1A68A8B4FEF811EF0F7 /* RNImagePicker.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNImagePicker.xcodeproj; path = "../node_modules/react-native-image-picker/ios/RNImagePicker.xcodeproj"; sourceTree = "<group>"; };
+		F10AD95B1F038DBC002DC6F1 /* ReactView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReactView.h; sourceTree = "<group>"; };
+		F10AD95C1F038DBC002DC6F1 /* ReactView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReactView.m; sourceTree = "<group>"; };
+		F10AD95F1F039010002DC6F1 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		F10AD9601F039010002DC6F1 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		F10AD9621F0390DA002DC6F1 /* PushNative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushNative.h; sourceTree = "<group>"; };
+		F10AD9631F0390DA002DC6F1 /* PushNative.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushNative.m; sourceTree = "<group>"; };
+		F10AD9651F039E12002DC6F1 /* NextRNViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NextRNViewController.h; sourceTree = "<group>"; };
+		F10AD9661F039E12002DC6F1 /* NextRNViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NextRNViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -413,6 +425,10 @@
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
+				F10AD9621F0390DA002DC6F1 /* PushNative.h */,
+				F10AD9631F0390DA002DC6F1 /* PushNative.m */,
+				F10AD95E1F038FF0002DC6F1 /* Controller */,
+				F10AD95A1F038D92002DC6F1 /* View */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
@@ -512,6 +528,28 @@
 				F10AD9361F035AE9002DC6F1 /* libRCTBEEPickerManager.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		F10AD95A1F038D92002DC6F1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F10AD95B1F038DBC002DC6F1 /* ReactView.h */,
+				F10AD95C1F038DBC002DC6F1 /* ReactView.m */,
+			);
+			name = View;
+			path = PSMeiTuan/View;
+			sourceTree = "<group>";
+		};
+		F10AD95E1F038FF0002DC6F1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F10AD95F1F039010002DC6F1 /* TestViewController.h */,
+				F10AD9601F039010002DC6F1 /* TestViewController.m */,
+				F10AD9651F039E12002DC6F1 /* NextRNViewController.h */,
+				F10AD9661F039E12002DC6F1 /* NextRNViewController.m */,
+			);
+			name = Controller;
+			path = PSMeiTuan/Controller;
 			sourceTree = "<group>";
 		};
 		F1D0110B1EFA60DA00C662DF /* Products */ = {
@@ -966,7 +1004,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F10AD95D1F038DBC002DC6F1 /* ReactView.m in Sources */,
+				F10AD9641F0390DA002DC6F1 /* PushNative.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				F10AD9671F039E12002DC6F1 /* NextRNViewController.m in Sources */,
+				F10AD9611F039010002DC6F1 /* TestViewController.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

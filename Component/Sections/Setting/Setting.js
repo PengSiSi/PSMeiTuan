@@ -8,10 +8,14 @@ import {
     Text,
     View,
     ListView,
-    PixelRatio
+    PixelRatio,
+    NativeModules,
+    InteractionManager
 } from 'react-native';
 
 import Color from './../../Config/Color';
+
+var Push = NativeModules.PushNative;
 
 export default class extends Component {
 
@@ -34,7 +38,8 @@ export default class extends Component {
         '1.ScrollableTabViewSDemo',
         '2.ListView多选实现',
         '3.日历的使用',
-        '4.我的申请页面'
+        '4.我的申请页面',
+        '5.跳转到iOS原生页面'
       ])
     };
     this.renderRow = this.renderRow.bind(this);
@@ -78,6 +83,14 @@ export default class extends Component {
         }
         case '3': {
           this.props.navigation.navigate('MyApplyPage')
+          break;
+        }
+        // 跳转到iOS原生页面
+        case '4': {
+          InteractionManager.runAfterInteractions(()=> {
+            // RNOpenOneVC这个也是写在原生里面的再PushNative中哦~
+            Push.RNOpenOneVC('测试');
+          });
           break;
         }
         default:

@@ -41,8 +41,8 @@ export default class extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            applyReason: '',
-            applyDate: '',
+            applyReason: '', // 申请人
+            applyDate: '', // 申请日期
             date: '',
             dpValue: null,
             visible: false,

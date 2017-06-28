@@ -19,6 +19,7 @@
   NSURL *jsCodeLocation;
 
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
+  
 
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"PSMeiTuan"
@@ -29,7 +30,14 @@
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   UIViewController *rootViewController = [UIViewController new];
   rootViewController.view = rootView;
-  self.window.rootViewController = rootViewController;
+  // 初始化Nav
+  _nav = [[UINavigationController alloc]initWithRootViewController:rootViewController];
+  
+  // 这里考虑到原生的导航会覆盖RN的导航,这里使用隐藏原生的导航,统一使用RN的导航
+  _nav.navigationBar.hidden = YES;
+
+  self.window.rootViewController = _nav;
+//  self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
   return YES;
 }
