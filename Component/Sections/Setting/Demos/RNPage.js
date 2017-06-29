@@ -1,6 +1,7 @@
 'use strict';
 /*
-    参考博客: http://blog.csdn.net/u012760183/article/details/53764033
+这里实现iOS原生跳转到RN某个页面还没有实现,后续添加...
+参考博客: http://blog.csdn.net/u012760183/article/details/53764033
 */
 
 import React,{Component} from 'react';

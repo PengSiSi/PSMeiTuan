@@ -18,6 +18,7 @@ import ScrollTabViewDemo from './../Sections/Setting/Demos/ScrollableTabViewSDem
 import MultipleSelectedDemo from './../Sections/Setting/Demos/MultipleSelected';
 import CalendarDemo from './../Sections/Setting/Demos/CalendarDemo';
 import MyApplyDemo from './../Sections/Setting/Demos/MyApplyDemo';
+import AntdMobileDemo from './../Sections/Setting/Demos/AntdMobileDemo';
 
 const lightContentScenes = ['Home', 'Mine']
 
@@ -185,7 +186,8 @@ const Navigator = StackNavigator(
         ScrollTabViewPage: {screen: ScrollTabViewDemo},
         MultipleSelectedPage: {screen: MultipleSelectedDemo},
         CalendarPage: {screen: CalendarDemo},
-        MyApplyPage: {screen: MyApplyDemo}
+        MyApplyPage: {screen: MyApplyDemo},
+        AntdMobilePage: {screen: AntdMobileDemo}
     },
     {
         navigationOptions: {

@@ -39,7 +39,8 @@ export default class extends Component {
         '2.ListView多选实现',
         '3.日历的使用',
         '4.我的申请页面',
-        '5.跳转到iOS原生页面'
+        '5.跳转到iOS原生页面',
+        '6.antd-mobile的简单使用'
       ])
     };
     this.renderRow = this.renderRow.bind(this);
@@ -91,6 +92,10 @@ export default class extends Component {
             // RNOpenOneVC这个也是写在原生里面的再PushNative中哦~
             Push.RNOpenOneVC('测试');
           });
+          break;
+        }
+        case '5': {
+          this.props.navigation.navigate('AntdMobilePage')
           break;
         }
         default:
