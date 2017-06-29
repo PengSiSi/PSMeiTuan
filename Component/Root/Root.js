@@ -19,6 +19,8 @@ import MultipleSelectedDemo from './../Sections/Setting/Demos/MultipleSelected';
 import CalendarDemo from './../Sections/Setting/Demos/CalendarDemo';
 import MyApplyDemo from './../Sections/Setting/Demos/MyApplyDemo';
 import AntdMobileDemo from './../Sections/Setting/Demos/AntdMobileDemo';
+import GridDemo from './../Sections/Setting/Demos/GridDemo';
+import AddImagesDemo from './../Sections/Setting/Demos/AddImagesDemo';
 
 const lightContentScenes = ['Home', 'Mine']
 
@@ -187,7 +189,9 @@ const Navigator = StackNavigator(
         MultipleSelectedPage: {screen: MultipleSelectedDemo},
         CalendarPage: {screen: CalendarDemo},
         MyApplyPage: {screen: MyApplyDemo},
-        AntdMobilePage: {screen: AntdMobileDemo}
+        AntdMobilePage: {screen: AntdMobileDemo},
+        Gridpage: {screen: GridDemo},
+        AddImagesPage: {screen: AddImagesDemo}
     },
     {
         navigationOptions: {

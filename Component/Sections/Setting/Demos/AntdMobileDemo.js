@@ -7,11 +7,12 @@ import {
     StyleSheet,
     Text,
     View,
-    ScrollView
+    ScrollView,
+    TouchableOpacity
 } from 'react-native';
 
 import MyCell from './../../../Common/MyApplyCell';
-import { DatePicker, List, InputItem } from 'antd-mobile';
+import { DatePicker, List, InputItem, Picker } from 'antd-mobile';
 // import { createForm } from 'rc-form';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
@@ -45,15 +46,20 @@ export default class extends Component {
             date: zhNow,
             classRoomName: '',
             startTime: '',
-            endTime: ''
+            endTime: '',
+            status: '请选择状态'
        }
     }
 
+    // 选择日期改变
     onChange = (date) => {
       this.setState({
          date: date
       });
-  }
+    }
+
+    onClick = (val) => {
+    };
 
     render() {
         // console.log('dpValue'+this.state.dpValue);
@@ -68,9 +74,14 @@ export default class extends Component {
                 >
                      <Item arrow="horizontal" onClick={() => {}}><Text style={{fontSize: 15, color: 'red'}}>申请日期</Text></Item>
                 </DatePicker>
-            <InputItem placeholder="请输入教室名称" onChange= {(val)=>this.setState({classRoomName: val})}><Text>教室名称</Text></InputItem>
-            <Item extra='请选择审核状态'>审核状态</Item>
-            <DatePicker mode="time" 
+                <InputItem placeholder="请输入教室名称" labelNumber={5} extra='右边内容' 
+                           onChange= {(val)=>this.setState({classRoomName: val})}
+                        //    styles={styles.InputItemStyle} // 修改样式布局会乱
+                        >
+                           <Text>教室名称</Text>
+                </InputItem>
+               
+                <DatePicker mode="time" 
                             minuteStep={5} 
                             onChange={(time)=> {this.setState({startTime: time})}}  
                             value={this.state.startTime}
@@ -82,13 +93,22 @@ export default class extends Component {
                             minuteStep={5} 
                             onChange={(time)=> {this.setState({endTime: time})}} 
                             value={this.state.endTime}
-                            // extra="请选择(可选)"  // extra和value是不能同时使用
                 >
                      <Item arrow="horizontal" onClick={() => {}}><Text style={{fontSize: 15, color: 'red'}}>结束时间</Text></Item>
                 </DatePicker>
             </List>
+            {/*注意: 这里必须是这种样式*/}
+             <Picker data={[{value:'审核中', label:'审核中'}, {value: '待审核', label: '待审核' }, {value: '已完成', label: '已完成'}]} cols={1} className="forss" 
+                     onChange= {(val)=>{this.setState({status: val})}}
+                     extra={this.state.status}>
+                <List.Item arrow="horizontal" value={this.state.status}>选择状态</List.Item>
+             </Picker>
            </ScrollView>
         );
+    }
+
+    pickStatus() {
+        alert('选择状态');
     }
 }
 
@@ -99,4 +119,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: 'white',
     },
+    InputItemStyle: {
+        fontSize: 15,
+        color: 'red',
+        flexDirection: 'row',
+        marginLeft: 30
+    }
 });

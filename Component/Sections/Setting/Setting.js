@@ -40,7 +40,9 @@ export default class extends Component {
         '3.日历的使用',
         '4.我的申请页面',
         '5.跳转到iOS原生页面',
-        '6.antd-mobile的简单使用'
+        '6.antd-mobile的简单使用',
+        '7.Gride封装组件',
+        '8.添加选择多张图片'
       ])
     };
     this.renderRow = this.renderRow.bind(this);
@@ -96,6 +98,14 @@ export default class extends Component {
         }
         case '5': {
           this.props.navigation.navigate('AntdMobilePage')
+          break;
+        }
+        case '6': {
+          this.props.navigation.navigate('Gridpage')
+          break;
+        }
+        case '7': {
+          this.props.navigation.navigate('AddImagesPage')
           break;
         }
         default:
