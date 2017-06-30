@@ -88,7 +88,7 @@ export default class extends Component {
                 {imageArr.map((item,index) =>{
                     return(
                         <View key={index} style={styles.imageItemStyle}>
-                            <TouchableOpacity onPress={this.props.pressImage}>
+                            <TouchableOpacity onPress={this.props.pressImage(index)}>
                                 <Image source = {{uri:item.path}} style={{width:imageWH,height:imageWH, flexDirection: 'row', justifyContent: 'flex-end'}}>
                                     <TouchableOpacity onPress={this.props.deleteImage(index)}>
                                         <Image source={require('./../Images/Setting/contacts_groupinfo_rename_delete@2x.png')}

@@ -41,9 +41,9 @@ export default class extends Component {
                 <AddImageContainerView 
                     imageArr={files} 
                     style={styles.ImageContainerViewStyle}
-                    pressAddImage={()=>{this.pickerImagesAction()}}
+                    pressAddImage={(index)=>this.pickerImagesAction()}
                     deleteImage={(index)=>this.deleteImageItemAction.bind(index)}
-                    pressImage={()=>{this.pressImageAction()}}>
+                    pressImage={(index)=>this.pressImageAction.bind(index)}>
                 </AddImageContainerView>
             </View>
 
@@ -55,21 +55,22 @@ export default class extends Component {
         ImagePicker.openPicker({
             multiple: true
             }).then(images => {
-
             this.setState({
-                files:images
+                files:this.state.files.concat(images), // 数组拼接,这里注意依然保存上次选择的照片
             });
             console.log(images);
-            });
+        });
     }
 
+    // 删除图片
     deleteImageItemAction(index) {
         console.log('index'+index);
         alert('删除图片'+index);
     }
 
-    pressImageAction() {
-        alert('点击图片');
+    // 点击图片放大查看
+    pressImageAction(index) {
+        alert('点击图片'+index);
     }
 }
 
