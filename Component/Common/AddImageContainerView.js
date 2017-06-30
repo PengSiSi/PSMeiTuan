@@ -82,15 +82,16 @@ export default class extends Component {
         let views = [];
         console.log('space:'+imageSpace);
         const {imageArr} = this.props;
+        let _this = this;
 
         return (
             <View style={{ width:Space.kScreenWidth,flexDirection:'row',flexWrap:'wrap'}}>
-                {imageArr.map((item,index) =>{
+                {imageArr.map((data,i) =>{
                     return(
-                        <View key={index} style={styles.imageItemStyle}>
-                            <TouchableOpacity onPress={this.props.pressImage(index)}>
-                                <Image source = {{uri:item.path}} style={{width:imageWH,height:imageWH, flexDirection: 'row', justifyContent: 'flex-end'}}>
-                                    <TouchableOpacity onPress={this.props.deleteImage(index)}>
+                        <View key={i} style={styles.imageItemStyle}>
+                            <TouchableOpacity onPress={_this.pressImage.bind(_this, i)}>
+                                <Image source = {{uri:data.path}} style={{width:imageWH,height:imageWH, flexDirection: 'row', justifyContent: 'flex-end'}}>
+                                    <TouchableOpacity onPress={_this.delImage.bind(_this, i)}>
                                         <Image source={require('./../Images/Setting/contacts_groupinfo_rename_delete@2x.png')}
                                             style={styles.deleteButtonStyle}>
                                         </Image>
@@ -107,6 +108,15 @@ export default class extends Component {
                  </TouchableOpacity>
             </View>
         );
+    }
+
+    delImage(index){
+        this.props.deleteImage(index);
+    }
+    
+    pressImage(index){
+        this.props.pressImage(index)
+        // alert('11');
     }
 }
 

@@ -42,11 +42,11 @@ export default class extends Component {
                     imageArr={files} 
                     style={styles.ImageContainerViewStyle}
                     pressAddImage={(index)=>this.pickerImagesAction()}
-                    deleteImage={(index)=>this.deleteImageItemAction.bind(index)}
-                    pressImage={(index)=>this.pressImageAction.bind(index)}>
+                    // 这里不知道下面两种写法啥区别? 估计是this指针的问题吧...待研究
+                    deleteImage={(index)=>this.deleteImageItemAction(index)}
+                    pressImage={(index)=>this.pressImageAction(index)}>
                 </AddImageContainerView>
             </View>
-
         );
     }
 
@@ -65,7 +65,22 @@ export default class extends Component {
     // 删除图片
     deleteImageItemAction(index) {
         console.log('index'+index);
-        alert('删除图片'+index);
+        // alert('删除图片'+index);
+        let imageArr = this.state.files;
+        // let ResultArr = imageArr.splice(index, 1);
+        //  alert(ResultArr.length);
+        this.setState({
+            files: this.removeItem(imageArr, index),
+        });
+    }
+
+    removeItem(imageArr, index) {
+        for (var i = 0; i < imageArr.length; i++) {
+            if (i == index) {
+                imageArr.splice(i, 1);
+            }
+        }
+        return imageArr;
     }
 
     // 点击图片放大查看
