@@ -38,8 +38,13 @@ export default class extends Component {
         const { files } = this.state;
         return (
             <View style={styles.container}>
-                <Text onPress={()=>{this.pickerImagesAction()}}>选择图片</Text>
-                <AddImageContainerView style={styles.ImageContainerViewStyle}></AddImageContainerView>
+                <AddImageContainerView 
+                    imageArr={files} 
+                    style={styles.ImageContainerViewStyle}
+                    pressAddImage={()=>{this.pickerImagesAction()}}
+                    deleteImage={(index)=>this.deleteImageItemAction.bind(index)}
+                    pressImage={()=>{this.pressImageAction()}}>
+                </AddImageContainerView>
             </View>
 
         );
@@ -50,15 +55,27 @@ export default class extends Component {
         ImagePicker.openPicker({
             multiple: true
             }).then(images => {
+
+            this.setState({
+                files:images
+            });
             console.log(images);
             });
-        }
+    }
+
+    deleteImageItemAction(index) {
+        console.log('index'+index);
+        alert('删除图片'+index);
+    }
+
+    pressImageAction() {
+        alert('点击图片');
+    }
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'white',
     },

@@ -67,6 +67,9 @@ import {
     TouchableOpacity
 } from 'react-native';
 
+import Space from '../Config/Space';
+const imageWH = 80;
+const imageSpace =  (Space.kScreenWidth - 4*imageWH)/8;
 
 export default class extends Component {
 
@@ -77,21 +80,34 @@ export default class extends Component {
 
     render() {
         let views = [];
+        console.log('space:'+imageSpace);
         const {imageArr} = this.props;
-        for (var index in imageArr) {
-            var element = imageArr[index];
-            views.push(
-                <View>
-                    <Image source>
-                        <Image>
-                        </Image>
-                    </Image>
-                </View>
-            );
-            }
-        }
+
         return (
+            <View style={{ width:Space.kScreenWidth,flexDirection:'row',flexWrap:'wrap'}}>
+                {imageArr.map((item,index) =>{
+                    return(
+                        <View key={index} style={styles.imageItemStyle}>
+                            <TouchableOpacity onPress={this.props.pressImage}>
+                                <Image source = {{uri:item.path}} style={{width:imageWH,height:imageWH, flexDirection: 'row', justifyContent: 'flex-end'}}>
+                                    <TouchableOpacity onPress={this.props.deleteImage(index)}>
+                                        <Image source={require('./../Images/Setting/contacts_groupinfo_rename_delete@2x.png')}
+                                            style={styles.deleteButtonStyle}>
+                                        </Image>
+                                    </TouchableOpacity>
+                                </Image>
+                            </TouchableOpacity>
+                        </View>
+                    );
+                })}
+                 <TouchableOpacity onPress={this.props.pressAddImage}>
+                    <Image source={require('./../Images/Setting/djsq_picture_add@2x.png')} 
+                           style={styles.imageItemStyle}>
+                    </Image>
+                 </TouchableOpacity>
+            </View>
         );
+    }
 }
 
 const styles = StyleSheet.create({
@@ -102,14 +118,16 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
     },
     imageItemStyle: {
-        width: 50,
-        height: 50,
-        backgroundColor: 'white'
+        width: imageWH,
+        height: imageWH,
+        backgroundColor: 'white',
+        marginRight:imageSpace,
+        marginLeft:imageSpace,
+        marginTop:5,
+        marginBottom:5
     },
     deleteButtonStyle: {
         width: 20,
         height: 20,
-        marginRight: 0,
-        marginTop: 0
-    }
+    },
 });
