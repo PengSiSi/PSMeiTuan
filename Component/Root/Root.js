@@ -21,6 +21,7 @@ import MyApplyDemo from './../Sections/Setting/Demos/MyApplyDemo';
 import AntdMobileDemo from './../Sections/Setting/Demos/AntdMobileDemo';
 import GridDemo from './../Sections/Setting/Demos/GridDemo';
 import AddImagesDemo from './../Sections/Setting/Demos/AddImagesDemo';
+import AntdPickerImageDemo from './../Sections/Setting/Demos/AntdImagePicker';
 
 const lightContentScenes = ['Home', 'Mine']
 
@@ -191,7 +192,8 @@ const Navigator = StackNavigator(
         MyApplyPage: {screen: MyApplyDemo},
         AntdMobilePage: {screen: AntdMobileDemo},
         Gridpage: {screen: GridDemo},
-        AddImagesPage: {screen: AddImagesDemo}
+        AddImagesPage: {screen: AddImagesDemo},
+        AntdPickerImagePage: {screen: AntdPickerImageDemo}
     },
     {
         navigationOptions: {

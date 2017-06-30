@@ -43,6 +43,7 @@
 		F10AD9641F0390DA002DC6F1 /* PushNative.m in Sources */ = {isa = PBXBuildFile; fileRef = F10AD9631F0390DA002DC6F1 /* PushNative.m */; };
 		F10AD9671F039E12002DC6F1 /* NextRNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F10AD9661F039E12002DC6F1 /* NextRNViewController.m */; };
 		F11403451F05D9E600087FD3 /* libimageCropPicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F11403291F05D9BD00087FD3 /* libimageCropPicker.a */; };
+		F11403571F06467800087FD3 /* libRCTCameraRoll.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F11403561F06464300087FD3 /* libRCTCameraRoll.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -249,6 +250,13 @@
 			remoteGlobalIDString = 3400A8081CEB54A6008A0BC7;
 			remoteInfo = imageCropPicker;
 		};
+		F11403551F06464300087FD3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F11403511F06464200087FD3 /* RCTCameraRoll.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 58B5115D1A9E6B3D00147676;
+			remoteInfo = RCTCameraRoll;
+		};
 		F1D011271EFA60DA00C662DF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BF77D1A68A8B4FEF811EF0F7 /* RNImagePicker.xcodeproj */;
@@ -294,6 +302,7 @@
 		F10AD9631F0390DA002DC6F1 /* PushNative.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushNative.m; sourceTree = "<group>"; };
 		F10AD9651F039E12002DC6F1 /* NextRNViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NextRNViewController.h; sourceTree = "<group>"; };
 		F10AD9661F039E12002DC6F1 /* NextRNViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NextRNViewController.m; sourceTree = "<group>"; };
+		F11403511F06464200087FD3 /* RCTCameraRoll.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTCameraRoll.xcodeproj; path = "../node_modules/react-native/Libraries/CameraRoll/RCTCameraRoll.xcodeproj"; sourceTree = "<group>"; };
 		F5FD944DFCB548E781719F3D /* imageCropPicker.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = imageCropPicker.xcodeproj; path = "../node_modules/react-native-image-crop-picker/ios/imageCropPicker.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -310,6 +319,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F11403571F06467800087FD3 /* libRCTCameraRoll.a in Frameworks */,
 				F11403451F05D9E600087FD3 /* libimageCropPicker.a in Frameworks */,
 				F10AD9591F036F56002DC6F1 /* libRCTBEEPickerManager.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
@@ -483,6 +493,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				F11403511F06464200087FD3 /* RCTCameraRoll.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
@@ -567,6 +578,14 @@
 			isa = PBXGroup;
 			children = (
 				F11403291F05D9BD00087FD3 /* libimageCropPicker.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F11403521F06464200087FD3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F11403561F06464300087FD3 /* libRCTCameraRoll.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -705,6 +724,10 @@
 				{
 					ProductGroup = F10AD92F1F035AE9002DC6F1 /* Products */;
 					ProjectRef = 3A3DC1566C3A46819B1C4CF2 /* RCTBEEPickerManager.xcodeproj */;
+				},
+				{
+					ProductGroup = F11403521F06464200087FD3 /* Products */;
+					ProjectRef = F11403511F06464200087FD3 /* RCTCameraRoll.xcodeproj */;
 				},
 				{
 					ProductGroup = 00C302B61ABCB90400DB3ED1 /* Products */;
@@ -945,6 +968,13 @@
 			fileType = archive.ar;
 			path = libimageCropPicker.a;
 			remoteRef = F11403281F05D9BD00087FD3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F11403561F06464300087FD3 /* libRCTCameraRoll.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTCameraRoll.a;
+			remoteRef = F11403551F06464300087FD3 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		F1D011281EFA60DA00C662DF /* libRNImagePicker.a */ = {
