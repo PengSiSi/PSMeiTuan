@@ -43,7 +43,8 @@ export default class extends Component {
         '6.antd-mobile的简单使用',
         '7.Gride封装组件',
         '8.添加选择多张图片',
-        '9.Antd-Mobile选择照片'
+        '9.Antd-Mobile选择照片',
+        '10.redux学习'
       ])
     };
     this.renderRow = this.renderRow.bind(this);
@@ -111,6 +112,10 @@ export default class extends Component {
         }
         case '8': {
           this.props.navigation.navigate('AntdPickerImagePage')
+          break;
+        }
+        case '9': {
+          this.props.navigation.navigate('ReduxDemoPage')
           break;
         }
         default:
