@@ -44,7 +44,8 @@ export default class extends Component {
         '7.Gride封装组件',
         '8.添加选择多张图片',
         '9.Antd-Mobile选择照片',
-        '10.redux学习'
+        '10.redux学习',
+        '11.页面实现两个ListView'
       ])
     };
     this.renderRow = this.renderRow.bind(this);
@@ -116,6 +117,10 @@ export default class extends Component {
         }
         case '9': {
           this.props.navigation.navigate('ReduxDemoPage')
+          break;
+        }
+        case '10': {
+          this.props.navigation.navigate('ContactDemoPage')
           break;
         }
         default:

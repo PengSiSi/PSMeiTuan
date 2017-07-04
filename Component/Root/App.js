@@ -24,6 +24,7 @@ import AddImagesDemo from './../Sections/Setting/Demos/AddImagesDemo';
 import AntdPickerImageDemo from './../Sections/Setting/Demos/AntdImagePicker';
 import ReduxDemo from './../Sections/Setting/Demos/ReduxDemo';
 import BeautyDemo from './../Sections/Setting/Demos/BeautyPage';
+import ContactDemo from './../Sections/Setting/Demos/ContactDemo';
 
 const lightContentScenes = ['Home', 'Mine']
 
@@ -197,7 +198,8 @@ const Navigator = StackNavigator(
         AddImagesPage: {screen: AddImagesDemo},
         AntdPickerImagePage: {screen: AntdPickerImageDemo},
         ReduxDemoPage: {screen: ReduxDemo},
-        Beautypage: {screen: BeautyDemo}
+        Beautypage: {screen: BeautyDemo},
+        ContactDemoPage: {screen: ContactDemo}
     },
     {
         navigationOptions: {

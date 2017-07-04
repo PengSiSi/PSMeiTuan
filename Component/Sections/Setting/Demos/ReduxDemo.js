@@ -69,7 +69,7 @@ class ReduxDemo extends Component {
                 // AsyncStorage.setItem(SHITUIMAGEKEY,data,(error)=>{
                 //     if (error){
                 //         console.log('存储失败' + error);
-                //     }else {
+                //     } else {
                 //         console.log('存储成功');
                 //         // 之前的做法是这里发送通知到首页
                 //         // DeviceEventEmitter.emit('SHITUIMAGE',url);
@@ -97,6 +97,7 @@ const styles = StyleSheet.create({
     textStyle: {
         fontSize: 20,
         textAlign: 'center',
+        alignItems: 'center',
     },
     buttonStyle: {
         backgroundColor: Color.kMainColor,
