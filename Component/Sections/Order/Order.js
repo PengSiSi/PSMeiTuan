@@ -28,6 +28,10 @@ export default class extends Component {
 
     static navigationOptions = ({navigation,screenProps}) => ({  
     headerTitle: '订单', 
+    headerTitleStyle: {
+            color: 'white',
+            alignSelf: 'center'  // 设置安卓端导航栏标题不居中显示
+        },
     headerStyle: {
         backgroundColor: '#06C1AE'  // 设置导航栏的背景颜色,headerTintColor设置无效
         }

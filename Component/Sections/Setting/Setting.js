@@ -10,7 +10,9 @@ import {
     ListView,
     PixelRatio,
     NativeModules,
-    InteractionManager
+    InteractionManager,
+    Platform,
+    Alert
 } from 'react-native';
 
 import Color from './../../Config/Color';
@@ -22,7 +24,8 @@ export default class extends Component {
   static navigationOptions = ({navigation,screenProps}) => ({  
         headerTitle: '封装组件Demo', 
         headerTitleStyle: {
-            color: 'white'
+            color: 'white',
+            alignSelf: 'center'  // 设置安卓端导航栏标题不居中显示
         },
         headerStyle: {
             backgroundColor: Color.kMainColor  // 设置导航栏的背景颜色,headerTintColor设置无效
@@ -93,11 +96,24 @@ export default class extends Component {
         }
         // 跳转到iOS原生页面
         case '4': {
-          InteractionManager.runAfterInteractions(()=> {
+          if (Platform.OS === 'ios') {
+            InteractionManager.runAfterInteractions(()=> {
             // RNOpenOneVC这个也是写在原生里面的再PushNative中哦~
             Push.RNOpenOneVC('测试');
           });
           break;
+          } else {
+            Alert.alert(
+            '注意',
+            '这里只实现iOS端哟,安卓端待完善',
+            [
+              {text: 'Cancel', onPress: () => console.log('Cancel Pressed!')},
+              {text: 'OK', onPress: () => console.log('OK Pressed!')},
+            ]
+          )
+          // 注意这要写break,否则,他会执行下面语句
+          break;
+          }
         }
         case '5': {
           this.props.navigation.navigate('AntdMobilePage')

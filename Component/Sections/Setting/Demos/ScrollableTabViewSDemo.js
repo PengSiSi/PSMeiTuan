@@ -21,7 +21,8 @@ export default class extends Component {
     static navigationOptions = ({navigation,screenProps}) => ({  
         headerTitle: 'ScrollableTabViewSDemo', 
         headerTitleStyle: {
-            color: 'white'
+            color: 'white',
+            alignSelf: 'center'  // 设置安卓端导航栏标题不居中显示
         },
         headerStyle: {
             backgroundColor: Color.kMainColor  // 设置导航栏的背景颜色,headerTintColor设置无效
@@ -39,19 +40,21 @@ export default class extends Component {
     }
 
     render() {
+
+        let titleNames = ['公务通知', '党建园地'];
         return (
             <ScrollableTabView
                 locked = {true}
                 renderTabBar ={() =>
-                    <SelfTabBar tabHeight={43}
-                                tabNames={this.state.titleList}
+                    <SelftabBar tabHeight={43}
+                                tabNames={titleNames}
                                 activeTextColor = {'rgb(99,113,142)'}
 					            inactiveTextColor = {'rgb(112, 112, 112)'}/>}
                 tabBarUnderlineStyle = {{height:1.5,backgroundColor:'rgb(100,119,162)'}}
             >
-                {this.state.titleList.map((data,i) =>{
+                {titleNames.map((data,i) =>{
                     return(
-                        <Temp key={data}
+                        <TempList key={i}
                                tabLabel={data.name}
                                type={data.id}
                                defaultValue = {''}

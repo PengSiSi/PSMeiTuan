@@ -20,7 +20,8 @@ export default class extends Component {
     static navigationOptions = ({navigation,screenProps}) => ({  
         headerTitle: '发布分享', 
         headerTitleStyle: {
-            color: 'white'
+            color: 'white',
+            alignSelf: 'center'
         },
         headerStyle: {
             backgroundColor: Color.kMainColor  // 设置导航栏的背景颜色,headerTintColor设置无效

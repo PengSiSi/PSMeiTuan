@@ -31,7 +31,8 @@ export default class extends Component {
     static navigationOptions = ({navigation,screenProps}) => ({  
         headerTitle: '日历的使用', 
         headerTitleStyle: {
-            color: 'white'
+            color: 'white',
+            alignSelf: 'center'  // 设置安卓端导航栏标题不居中显示
         },
         headerStyle: {
             backgroundColor: Color.kMainColor  // 设置导航栏的背景颜色,headerTintColor设置无效
