@@ -26,6 +26,7 @@ import ReduxDemo from './../Sections/Setting/Demos/ReduxDemo';
 import BeautyDemo from './../Sections/Setting/Demos/BeautyPage';
 import ContactDemo from './../Sections/Setting/Demos/ContactDemo';
 import MobxDemo from './../Sections/Setting/Demos/MobxDemo';
+import CartMobxDemo from './../Sections/Setting/Demos/CartMobxDemo';
 
 const lightContentScenes = ['Home', 'Mine']
 
@@ -201,7 +202,8 @@ const Navigator = StackNavigator(
         ReduxDemoPage: {screen: ReduxDemo},
         Beautypage: {screen: BeautyDemo},
         ContactDemoPage: {screen: ContactDemo},
-        MobxDemoPage: {screen: MobxDemo}
+        MobxDemoPage: {screen: MobxDemo},
+        CartMobxDemoPage: {screen: CartMobxDemo}
     },
     {
         navigationOptions: {

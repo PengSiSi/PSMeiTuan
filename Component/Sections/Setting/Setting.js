@@ -49,7 +49,8 @@ export default class extends Component {
         '9.Antd-Mobile选择照片',
         '10.redux学习',
         '11.页面实现两个ListView',
-        '12.Mobx学习'
+        '12.Mobx学习',
+        '13.Mobx实现购物车例子'
       ])
     };
     this.renderRow = this.renderRow.bind(this);
@@ -142,6 +143,10 @@ export default class extends Component {
         }
         case '11': {
           this.props.navigation.navigate('MobxDemoPage')
+          break;
+        }
+        case '12': {
+          this.props.navigation.navigate('CartMobxDemoPage')
           break;
         }
         default:
