@@ -24,6 +24,8 @@ http://www.cnblogs.com/pengsi/
 ![image](https://github.com/PengSiSi/PSMeiTuan/blob/master/ScreenShot/ContactDemo.png)
 ![image](https://github.com/PengSiSi/PSMeiTuan/blob/master/ScreenShot/pickerIamge.png)
 ![image](https://github.com/PengSiSi/PSMeiTuan/blob/master/ScreenShot/多选.png)
+![image](https://github.com/PengSiSi/PSMeiTuan/blob/master/ScreenShot/mobxDemo.png)
+![image](https://github.com/PengSiSi/PSMeiTuan/blob/master/ScreenShot/cartMobxDemo.png)
 
 ---
 
