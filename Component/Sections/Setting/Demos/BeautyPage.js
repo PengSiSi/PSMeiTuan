@@ -17,6 +17,7 @@ import {
     Dimensions,
     Animated,
     Easing,
+    AsyncStorage
 } from 'react-native';
 
 import { connect } from 'react-redux';
@@ -24,6 +25,7 @@ import {fetchBeautyGirlData} from './../../../Redux/Actions/BeautifulGirlAction'
 import Color from './../../../Config/Color';
 import Space from './../../../Config/Space';
 import NavigationItem from './../../../Common/NavigationItem';
+import { backImage, getBackImage } from './../../../Redux/Actions/BackImageAction';;
 
 class BeautyPage extends Component {
 
@@ -56,8 +58,9 @@ class BeautyPage extends Component {
 
     componentWillMount(){
       //InteractionManager.runAfterInteractions(() => {
-        const {dispatch} = this.props;
-        dispatch(fetchBeautyGirlData());
+        // const {dispatch} = this.props;
+        // dispatch(fetchBeautyGirlData());
+        this.props.fetchBeautyGirlData();
     //  });
    }
 
@@ -110,7 +113,19 @@ class BeautyPage extends Component {
         // alert(item.url);
         const {navigate,goBack,state} = this.props.navigation;
         // 在第二个页面,在goBack之前,将上个页面的方法取到,并回传参数,这样回传的参数会重走render方法
-        state.params.callback(item.url);
+        // state.params.callback(item.url);
+        let KEY = 'PSMeiTuan';
+        AsyncStorage.setItem(KEY,item.url,(error)=>{
+            if (error){
+                console.log('存储失败' + error);
+            } else {
+                console.log('存储成功');
+                // 这里可以发送通知到首页
+                // DeviceEventEmitter.emit('SHITUIMAGE',url);
+                // this.props.getQiNiuToken();
+                this.props.getBackImage(item.url);
+        }
+    });
         goBack();
     }
 }
@@ -128,21 +143,19 @@ const styles = StyleSheet.create({
     }
 });
 
-/*
 export default connect((state) => {
-    const {BeautyReducers} = state;
+    const { beautyReducers } = state;
     return {
-        BeautyReducers
+        beautyReducers
     }
-}, { beautyAction })(BeautyPage)
-
-*/
+}, { backImage,getBackImage, fetchBeautyGirlData })(BeautyPage)
 
 
-function mapStateToProps(state) {
-  const { beautyReducers } = state;
-  return {
-    beautyReducers
-  }
-}
-export default connect(mapStateToProps)(BeautyPage);
+
+// function mapStateToProps(state) {
+//   const { beautyReducers } = state;
+//   return {
+//     beautyReducers
+//   };
+// }
+// export default connect(mapStateToProps)(BeautyPage);

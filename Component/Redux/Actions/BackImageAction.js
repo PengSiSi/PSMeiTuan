@@ -3,6 +3,7 @@ import * as types from './../ActionTypes';
 import {
     AsyncStorage,
 } from 'react-native';
+
 let KEY = 'PSMeiTuan';
 
 export function backImage() {

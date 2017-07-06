@@ -14,6 +14,7 @@ import Color from './../../../Config/Color';
 import ImagePicker from 'react-native-image-crop-picker';
 import AddImageContainerView from './../../../Common/AddImageContainerView';
 import Space from './../../../Config/Space';
+import NavigationItem from './../../../Common/NavigationItem';
 
 export default class extends Component {
 
@@ -21,11 +22,22 @@ export default class extends Component {
         headerTitle: '发布分享', 
         headerTitleStyle: {
             color: 'white',
-            alignSelf: 'center'
+            alignSelf: 'center'  // 设置安卓端导航栏标题不居中显示
         },
         headerStyle: {
             backgroundColor: Color.kMainColor  // 设置导航栏的背景颜色,headerTintColor设置无效
         },
+         headerRight: (
+            <View style={{ flexDirection: 'row' }}>
+                <NavigationItem
+                    title='上传'
+                    onPress={() => {
+                        // 参考博客: http://www.jianshu.com/p/488e62ed9656
+                        alert('多图上传参考代码处参考博客');
+                    }}
+                />
+            </View>
+        ),
     });
 
     constructor(props) {
@@ -52,7 +64,7 @@ export default class extends Component {
     }
 
     // 选择多张图片
-    pickerImagesAction() {
+    pickerImagesAction() {//安卓平台不能进行多图选择
         ImagePicker.openPicker({
             multiple: true
             }).then(images => {

@@ -18,6 +18,9 @@ import Space from './../../../Config/Space';
 import { connect } from 'react-redux';
 import { backImage,getBackImage } from './../../../Redux/Actions/BackImageAction';
 
+// 显示图片的url,避免警告,这里给一个占位的默认图片
+let imageUri = 'https://ws1.sinaimg.cn/large/610dc034ly1fgllsthvu1j20u011in1p.jpg';
+
 class ReduxDemo extends Component {
 
     static navigationOptions = ({navigation,screenProps}) => ({  
@@ -38,12 +41,46 @@ class ReduxDemo extends Component {
         }
     }
 
-    render() {
-         const { beautyReducers } = this.props;
+    /**
+     * 此页面调用顺序:
+     * 1>render;
+     * 2>componentDidMount;
+     * 3>componentWillReceiveProps;
+     * 4>render;
+     */
 
+    // 使用
+    componentDidMount(){
+        console.log('componentDidMount');
+        // 使用backImage方法。
+        this.props.backImage();  
+    }
+
+    componentWillReceiveProps(nextProps){
+        console.log('componentWillReceiveProps');
+        // 最开始的值
+        console.log(nextProps.beautyReducers);
+        // 之前存储的值
+        console.log(this.props.beautyReducers);
+
+        const { navigate } = this.props.navigation;
+        const { imageURL } = nextProps.beautyReducers;
+
+        if (this.props.beautyReducers.imageURL !== imageURL){
+            if (imageURL) {
+                imageUri = imageURL;
+            }
+        }
+    }
+
+    render() {
+        console.log('render');
+        // 掉用过上面的方法后就可以通过打印`beautyReducers`获得需要的数据
+        console.log(this.props.beautyReducers);
+        const { beautyReducers } = this.props;
         return (
             <View style={styles.container}>
-                <Image source={{uri: this.state.imageUrl}}
+                <Image source={{uri: imageUri}}
                        resizeMode='cover'
                        style={styles.imageStyle}>
                     <TouchableOpacity onPress={this.onButtonPress.bind(this)} style={styles.buttonStyle}>
@@ -56,8 +93,6 @@ class ReduxDemo extends Component {
     
     onButtonPress() {
         // alert('选择图片');
-        // const {navigate} = this.props.navigation;
-        // navigate('Beautypage');
         this.props.navigation.navigate('Beautypage', {
              // 回传过来的url
             callback: (data)=>{
@@ -66,18 +101,7 @@ class ReduxDemo extends Component {
                 this.setState({
                     imageUrl: data
                 });
-                // let SHITUIMAGEKEY = 'PSMeiTuan';
-                // AsyncStorage.setItem(SHITUIMAGEKEY,data,(error)=>{
-                //     if (error){
-                //         console.log('存储失败' + error);
-                //     } else {
-                //         console.log('存储成功');
-                //         // 之前的做法是这里发送通知到首页
-                //         // DeviceEventEmitter.emit('SHITUIMAGE',url);
-                //         // this.props.getQiNiuToken();
-                //         this.props.getBackImage(data);
-                // }
-            // });
+                // 实现二: 在BeautyPage.js页面使用redux存值
         }});
     }
 }

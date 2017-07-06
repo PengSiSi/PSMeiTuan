@@ -14,13 +14,11 @@ export default function beautyReducers(state = initialState, action) {
 				loading: true,
 				beauty: action.beauty
 			});
-            break;
         case types.BACKIMAGE_URL:
             return Object.assign({}, state, {
 				imageURL:action.imageURL
 			});
         default:
             return state;
-            break;
     }
 }
