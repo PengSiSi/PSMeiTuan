@@ -48,7 +48,8 @@ export default class extends Component {
         '8.添加选择多张图片',
         '9.Antd-Mobile选择照片',
         '10.redux学习',
-        '11.页面实现两个ListView'
+        '11.页面实现两个ListView',
+        '12.Mobx学习'
       ])
     };
     this.renderRow = this.renderRow.bind(this);
@@ -137,6 +138,10 @@ export default class extends Component {
         }
         case '10': {
           this.props.navigation.navigate('ContactDemoPage')
+          break;
+        }
+        case '11': {
+          this.props.navigation.navigate('MobxDemoPage')
           break;
         }
         default:

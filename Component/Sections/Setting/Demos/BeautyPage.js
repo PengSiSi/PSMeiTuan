@@ -108,11 +108,11 @@ class BeautyPage extends Component {
         );
     }
 
-    // 点击图片
+    // 点击图片,保存图片
     onImageClick(item) {
         // alert(item.url);
         const {navigate,goBack,state} = this.props.navigation;
-        // 在第二个页面,在goBack之前,将上个页面的方法取到,并回传参数,这样回传的参数会重走render方法
+        // 方法一: 在第二个页面,在goBack之前,将上个页面的方法取到,并回传参数,这样回传的参数会重走render方法
         // state.params.callback(item.url);
         let KEY = 'PSMeiTuan';
         AsyncStorage.setItem(KEY,item.url,(error)=>{
@@ -120,12 +120,13 @@ class BeautyPage extends Component {
                 console.log('存储失败' + error);
             } else {
                 console.log('存储成功');
-                // 这里可以发送通知到首页
+                // 方法二: 这里可以发送通知到首页
                 // DeviceEventEmitter.emit('SHITUIMAGE',url);
-                // this.props.getQiNiuToken();
+                // 方法三:
                 this.props.getBackImage(item.url);
         }
     });
+    // 返回当前页
         goBack();
     }
 }
@@ -143,12 +144,13 @@ const styles = StyleSheet.create({
     }
 });
 
+// 连接reducer
 export default connect((state) => {
-    const { beautyReducers } = state;
+    const { beautyReducers } = state;  // 这里的beautyReducers注意和对应的reducer文件export的类相同
     return {
         beautyReducers
     }
-}, { backImage,getBackImage, fetchBeautyGirlData })(BeautyPage)
+}, { backImage,getBackImage, fetchBeautyGirlData })(BeautyPage) // 这里是对应的存值的方法,BeautyPage是导出当前模块
 
 
 
