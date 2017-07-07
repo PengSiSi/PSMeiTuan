@@ -14,9 +14,12 @@ import Color from './../../../Config/Color';
 import AppState from './../../../Mobx/AppState';
 import { observer } from 'mobx-react';
 
+// 实例化,这里当然也可以在AppState导出组件时进行new
 const APPState= new AppState();
 
+// 这里必须要写的,不然不能监听值的变化
 @observer
+
 export default class extends Component {
 
      static navigationOptions = ({navigation,screenProps}) => ({  

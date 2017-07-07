@@ -5,6 +5,8 @@ import {data} from './../Resource/CartData';
 //   return list.filter(item => item.id === id)[0];
 // }
 
+useStrict(true);//这里用到了严格模式，在修改类的成员属性的时候函数前面需要加上 @action
+
 // 将数据源添加check是否选中的标记
 const dataList = data.map((item)=>{
     return {
