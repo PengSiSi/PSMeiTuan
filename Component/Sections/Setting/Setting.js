@@ -16,6 +16,7 @@ import {
 } from 'react-native';
 
 import Color from './../../Config/Color';
+import {toastShort} from './../../Util/ToastUtils';
 
 var Push = NativeModules.PushNative;
 
@@ -56,7 +57,11 @@ export default class extends Component {
     this.renderRow = this.renderRow.bind(this);
   }
 
-    render() {
+  componentWillMount(props) {
+    toastShort('加载成功');
+  }
+
+  render() {
     return (
       <View style={{flex: 1}}>
       <ListView

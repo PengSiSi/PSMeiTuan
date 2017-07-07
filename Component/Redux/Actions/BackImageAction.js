@@ -5,11 +5,11 @@ import {
 } from 'react-native';
 
 let KEY = 'PSMeiTuan';
-
 export function backImage() {
     return dispatch => {
         return AsyncStorage.getItem(KEY,(Error,result)=>{
                 if (result === null){
+                    // 使用dispatch存储值
                     dispatch(getBackImage('img'))
                 } else {
                     console.log('获取图片成功' + result);
@@ -18,7 +18,6 @@ export function backImage() {
             });
         }
 };
-
 
 export function getBackImage(imageURL) {
     return {

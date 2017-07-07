@@ -48,7 +48,6 @@ class ReduxDemo extends Component {
      * 3>componentWillReceiveProps;
      * 4>render;
      */
-
     // 使用
     componentDidMount(){
         console.log('componentDidMount');
