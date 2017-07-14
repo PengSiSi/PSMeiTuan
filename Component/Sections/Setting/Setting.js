@@ -51,7 +51,8 @@ export default class extends Component {
         '10.redux学习',
         '11.页面实现两个ListView',
         '12.Mobx学习',
-        '13.Mobx实现购物车例子'
+        '13.Mobx实现购物车例子',
+        '14.时间线实现'
       ])
     };
     this.renderRow = this.renderRow.bind(this);
@@ -152,6 +153,10 @@ export default class extends Component {
         }
         case '12': {
           this.props.navigation.navigate('CartMobxDemoPage')
+          break;
+        }
+        case '13': {
+          this.props.navigation.navigate('TimeLineDemoPage')
           break;
         }
         default:

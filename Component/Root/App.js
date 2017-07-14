@@ -27,6 +27,7 @@ import BeautyDemo from './../Sections/Setting/Demos/BeautyPage';
 import ContactDemo from './../Sections/Setting/Demos/ContactDemo';
 import MobxDemo from './../Sections/Setting/Demos/MobxDemo';
 import CartMobxDemo from './../Sections/Setting/Demos/CartMobxDemo';
+import TimeLineDemo from './../Sections/Setting/Demos/TimeLinePage';
 
 const lightContentScenes = ['Home', 'Mine']
 
@@ -203,7 +204,8 @@ const Navigator = StackNavigator(
         Beautypage: {screen: BeautyDemo},
         ContactDemoPage: {screen: ContactDemo},
         MobxDemoPage: {screen: MobxDemo},
-        CartMobxDemoPage: {screen: CartMobxDemo}
+        CartMobxDemoPage: {screen: CartMobxDemo},
+        TimeLineDemoPage: {screen: TimeLineDemo}
     },
     {
         navigationOptions: {
