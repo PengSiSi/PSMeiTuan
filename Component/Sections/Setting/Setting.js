@@ -17,6 +17,7 @@ import {
 
 import Color from './../../Config/Color';
 import {toastShort} from './../../Util/ToastUtils';
+import PopView from './../../Common/PopView';
 
 var Push = NativeModules.PushNative;
 
@@ -52,7 +53,9 @@ export default class extends Component {
         '11.页面实现两个ListView',
         '12.Mobx学习',
         '13.Mobx实现购物车例子',
-        '14.时间线实现'
+        '14.时间线实现',
+        '15.Cell的展开折叠',
+        '16.自定义Modal选择展示'
       ])
     };
     this.renderRow = this.renderRow.bind(this);
@@ -69,6 +72,9 @@ export default class extends Component {
           dataSource={this.state.dataSource}
           renderRow={this.renderRow}
         />
+      <PopView 
+        ref={(ref)=>this.popView = ref}>
+      </PopView>
       </View>
     );
   }
@@ -157,6 +163,15 @@ export default class extends Component {
         }
         case '13': {
           this.props.navigation.navigate('TimeLineDemoPage')
+          break;
+        }
+        case '14': {
+          this.props.navigation.navigate('CellExpandDemoPage')
+          break;
+        }
+        case '15': {
+          // 自定义Modal展示选择
+          this.popView.show();
           break;
         }
         default:

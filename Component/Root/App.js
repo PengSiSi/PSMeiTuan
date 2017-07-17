@@ -28,6 +28,7 @@ import ContactDemo from './../Sections/Setting/Demos/ContactDemo';
 import MobxDemo from './../Sections/Setting/Demos/MobxDemo';
 import CartMobxDemo from './../Sections/Setting/Demos/CartMobxDemo';
 import TimeLineDemo from './../Sections/Setting/Demos/TimeLinePage';
+import CellExpandableDemo from './../Sections/Setting/Demos/CellExpandable';
 
 const lightContentScenes = ['Home', 'Mine']
 
@@ -205,7 +206,8 @@ const Navigator = StackNavigator(
         ContactDemoPage: {screen: ContactDemo},
         MobxDemoPage: {screen: MobxDemo},
         CartMobxDemoPage: {screen: CartMobxDemo},
-        TimeLineDemoPage: {screen: TimeLineDemo}
+        TimeLineDemoPage: {screen: TimeLineDemo},
+        CellExpandDemoPage: {screen: CellExpandableDemo}
     },
     {
         navigationOptions: {
