@@ -1,43 +1,52 @@
 /**
  * Created by 思思on 17/6/22.
  */
-import React, { Component } from 'react';
+import React, {
+  Component
+} from 'react';
 import {
-    AppRegistry,
-    StyleSheet,
-    Text,
-    View,
-    ListView,
-    PixelRatio,
-    NativeModules,
-    InteractionManager,
-    Platform,
-    Alert
+  AppRegistry,
+  StyleSheet,
+  Text,
+  View,
+  ListView,
+  PixelRatio,
+  NativeModules,
+  InteractionManager,
+  Platform,
+  Alert
 } from 'react-native';
 
 import Color from './../../Config/Color';
-import {toastShort} from './../../Util/ToastUtils';
 import PopView from './../../Common/PopView';
+import {
+  toastShort
+} from './../../Util/ToastUtils';
 
 var Push = NativeModules.PushNative;
 
 export default class extends Component {
 
-  static navigationOptions = ({navigation,screenProps}) => ({  
-        headerTitle: '封装组件Demo', 
-        headerTitleStyle: {
-            color: 'white',
-            alignSelf: 'center'  // 设置安卓端导航栏标题不居中显示
-        },
-        headerStyle: {
-            backgroundColor: Color.kMainColor  // 设置导航栏的背景颜色,headerTintColor设置无效
-        },
-    }); 
+  static navigationOptions = ({
+    navigation,
+    screenProps
+  }) => ({
+    headerTitle: '封装组件Demo',
+    headerTitleStyle: {
+      color: 'white',
+      alignSelf: 'center' // 设置安卓端导航栏标题不居中显示
+    },
+    headerStyle: {
+      backgroundColor: Color.kMainColor // 设置导航栏的背景颜色,headerTintColor设置无效
+    },
+  });
 
-    // 初始化模拟数据
+  // 初始化模拟数据
   constructor(props) {
     super(props);
-    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    const ds = new ListView.DataSource({
+      rowHasChanged: (r1, r2) => r1 !== r2
+    });
     this.state = {
       dataSource: ds.cloneWithRows([
         '1.ScrollableTabViewSDemo',
@@ -54,8 +63,7 @@ export default class extends Component {
         '12.Mobx学习',
         '13.Mobx实现购物车例子',
         '14.时间线实现',
-        '15.Cell的展开折叠',
-        '16.自定义Modal选择展示'
+        '15.下拉菜单隐藏'
       ])
     };
     this.renderRow = this.renderRow.bind(this);
@@ -80,102 +88,127 @@ export default class extends Component {
   }
 
   renderRow(rowData, sectionID, rowID, highlightRow) {
-      return(
-          <View style = {styles.cellStyle}>
+    return (
+      <View style = {styles.cellStyle}>
             <Text style = {styles.cellTextStyle} 
                   onPress = {this.pushToNextPage.bind(this,rowData, sectionID,rowID, highlightRow)}>{rowData}
             </Text>
           </View>
-      )
+    )
   }
 
   // push操作
   pushToNextPage(rowData, sectionID, rowID, highlightRow) {
-    switch (rowID) {  // 注意switch里rowID需要比较的是字符串
-        case '0': {
-           this.props.navigation.navigate('ScrollTabViewPage')
-            break;
+    switch (rowID) { // 注意switch里rowID需要比较的是字符串
+      case '0':
+        {
+          this.props.navigation.navigate('ScrollTabViewPage')
+          break;
         }
-        case '1': {
+      case '1':
+        {
           this.props.navigation.navigate('MultipleSelectedPage')
-            break;
+          break;
         }
-        case '2': {
+      case '2':
+        {
           this.props.navigation.navigate('CalendarPage')
-            break;
+          break;
         }
-        case '3': {
+      case '3':
+        {
           this.props.navigation.navigate('MyApplyPage')
           break;
         }
         // 跳转到iOS原生页面
-        case '4': {
+      case '4':
+        {
           if (Platform.OS === 'ios') {
-            InteractionManager.runAfterInteractions(()=> {
-            // RNOpenOneVC这个也是写在原生里面的再PushNative中哦~
-            Push.RNOpenOneVC('测试');
-          });
-          break;
+            InteractionManager.runAfterInteractions(() => {
+              // RNOpenOneVC这个也是写在原生里面的再PushNative中哦~
+              Push.RNOpenOneVC('测试');
+            });
+            break;
           } else {
             Alert.alert(
-            '注意',
-            '这里只实现iOS端哟,安卓端待完善',
-            [
-              {text: 'Cancel', onPress: () => console.log('Cancel Pressed!')},
-              {text: 'OK', onPress: () => console.log('OK Pressed!')},
-            ]
-          )
-          // 注意这要写break,否则,他会执行下面语句
-          break;
+                '注意',
+                '这里只实现iOS端哟,安卓端待完善', [{
+                  text: 'Cancel',
+                  onPress: () => console.log('Cancel Pressed!')
+                }, {
+                  text: 'OK',
+                  onPress: () => console.log('OK Pressed!')
+                }, ]
+              )
+              // 注意这要写break,否则,他会执行下面语句
+            break;
           }
         }
-        case '5': {
+      case '5':
+        {
           this.props.navigation.navigate('AntdMobilePage')
           break;
         }
-        case '6': {
+      case '6':
+        {
           this.props.navigation.navigate('Gridpage')
           break;
         }
-        case '7': {
+      case '7':
+        {
           this.props.navigation.navigate('AddImagesPage')
           break;
         }
-        case '8': {
+      case '8':
+        {
           this.props.navigation.navigate('AntdPickerImagePage')
           break;
         }
-        case '9': {
+      case '9':
+        {
           this.props.navigation.navigate('ReduxDemoPage')
           break;
         }
-        case '10': {
+      case '10':
+        {
           this.props.navigation.navigate('ContactDemoPage')
           break;
         }
-        case '11': {
+      case '11':
+        {
           this.props.navigation.navigate('MobxDemoPage')
           break;
         }
-        case '12': {
+      case '12':
+        {
           this.props.navigation.navigate('CartMobxDemoPage')
           break;
         }
-        case '13': {
+      case '13':
+        {
           this.props.navigation.navigate('TimeLineDemoPage')
           break;
         }
-        case '14': {
-          this.props.navigation.navigate('CellExpandDemoPage')
+// <<<<<<< HEAD
+//         case '14': {
+//           this.props.navigation.navigate('CellExpandDemoPage')
+//           break;
+//         }
+//         case '15': {
+//           // 自定义Modal展示选择
+//           this.popView.show();
+//           break;
+//         }
+//         default:
+//             break;
+// =======
+      case '14':
+        {
+          this.props.navigation.navigate('ZXSportDemonPage')
           break;
         }
-        case '15': {
-          // 自定义Modal展示选择
-          this.popView.show();
-          break;
-        }
-        default:
-            break;
+      default:
+        break;
     }
   }
 }
@@ -193,9 +226,9 @@ const styles = StyleSheet.create({
     borderBottomColor: '#666',
     flexDirection: 'row',
     padding: 10
-},
+  },
   cellTextStyle: {
-      fontSize: 17,
-      textAlign: 'center'
-}
+    fontSize: 17,
+    textAlign: 'center'
+  }
 });
