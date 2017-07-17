@@ -1,9 +1,17 @@
 /**
  * Created by 思思 on 17/6/16.
  */
-import React, { Component } from 'react';
-import { StatusBar } from 'react-native';
-import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
+import React, {
+    Component
+} from 'react';
+import {
+    StatusBar
+} from 'react-native';
+import {
+    StackNavigator,
+    TabNavigator,
+    TabBarBottom
+} from 'react-navigation';
 
 import HomeScreen from './../Sections/Home/Home';
 import OrderScreen from './../Sections/Order/Order';
@@ -28,7 +36,7 @@ import ContactDemo from './../Sections/Setting/Demos/ContactDemo';
 import MobxDemo from './../Sections/Setting/Demos/MobxDemo';
 import CartMobxDemo from './../Sections/Setting/Demos/CartMobxDemo';
 import TimeLineDemo from './../Sections/Setting/Demos/TimeLinePage';
-
+import ZXSportDemon from './../Sections/Setting/Demos/ZXSportMenu';
 const lightContentScenes = ['Home', 'Mine']
 
 function getCurrentRouteName(navigationState) {
@@ -52,32 +60,36 @@ export default class APP extends Component {
     }
 
     render() {
-        return (
-            <Navigator
-                onNavigationStateChange={
-                    (prevState, currentState) => {
-                        const currentScene = getCurrentRouteName(currentState);
-                        const previousScene = getCurrentRouteName(prevState);
-                        if (previousScene !== currentScene) {
-                            if (lightContentScenes.indexOf(currentScene) >= 0) {
-                                StatusBar.setBarStyle('light-content')
-                            } else {
-                                StatusBar.setBarStyle('dark-content')
-                            }
+        return ( < Navigator onNavigationStateChange = {
+                (prevState, currentState) => {
+                    const currentScene = getCurrentRouteName(currentState);
+                    const previousScene = getCurrentRouteName(prevState);
+                    if (previousScene !== currentScene) {
+                        if (lightContentScenes.indexOf(currentScene) >= 0) {
+                            StatusBar.setBarStyle('light-content')
+                        } else {
+                            StatusBar.setBarStyle('dark-content')
                         }
                     }
-                }/>
+                }
+            }
+            />
         );
     }
 }
 
 //// 为了实现登录的modal效果,所以将Main页面单独拆分出来.
 const MineStack = StackNavigator({
-    Mine:{
-        screen:MineScreen,
-        navigationOptions: ({ navigation }) => ({
+    Mine: {
+        screen: MineScreen,
+        navigationOptions: ({
+            navigation
+        }) => ({
             tabBarLabel: '我的',
-            tabBarIcon: ({ focused, tintColor }) => (
+            tabBarIcon: ({
+                focused,
+                tintColor
+            }) => (
                 <TabBarItem
                     tintColor={tintColor}
                     focused={focused}
@@ -87,13 +99,18 @@ const MineStack = StackNavigator({
             )
         }),
     },
-    Login:{
-        screen:Login,
+    Login: {
+        screen: Login,
         headerBackTitle: false,
         // 这里需要设置和Mine一样的navigationOptions,否则Modal到登录页底部的TabbarItem会消失
-        navigationOptions: ({ navigation }) => ({
+        navigationOptions: ({
+            navigation
+        }) => ({
             tabBarLabel: '我的',
-            tabBarIcon: ({ focused, tintColor }) => (
+            tabBarIcon: ({
+                focused,
+                tintColor
+            }) => (
                 <TabBarItem
                     tintColor={tintColor}
                     focused={focused}
@@ -103,17 +120,21 @@ const MineStack = StackNavigator({
             )
         }),
     }
-},{
-    mode:'modal',
+}, {
+    mode: 'modal',
 });
 
-const Tab = TabNavigator(
-    {
+const Tab = TabNavigator({
         Home: {
             screen: HomeScreen,
-            navigationOptions: ({ navigation }) => ({
+            navigationOptions: ({
+                navigation
+            }) => ({
                 tabBarLabel: '团购',
-                tabBarIcon: ({ focused, tintColor }) => (
+                tabBarIcon: ({
+                    focused,
+                    tintColor
+                }) => (
                     <TabBarItem
                         tintColor={tintColor}
                         focused={focused}
@@ -125,9 +146,14 @@ const Tab = TabNavigator(
         },
         Nearby: {
             screen: NearByScreen,
-            navigationOptions: ({ navigation }) => ({
+            navigationOptions: ({
+                navigation
+            }) => ({
                 tabBarLabel: '附近',
-                tabBarIcon: ({ focused, tintColor }) => (
+                tabBarIcon: ({
+                    focused,
+                    tintColor
+                }) => (
                     <TabBarItem
                         tintColor={tintColor}
                         focused={focused}
@@ -140,9 +166,14 @@ const Tab = TabNavigator(
 
         Order: {
             screen: OrderScreen,
-            navigationOptions: ({ navigation }) => ({
+            navigationOptions: ({
+                navigation
+            }) => ({
                 tabBarLabel: '订单',
-                tabBarIcon: ({ focused, tintColor }) => (
+                tabBarIcon: ({
+                    focused,
+                    tintColor
+                }) => (
                     <TabBarItem
                         tintColor={tintColor}
                         focused={focused}
@@ -166,12 +197,11 @@ const Tab = TabNavigator(
             //         />
             //     )
             // }),
-            navigationOptions:{
-            header:null
-        }
+            navigationOptions: {
+                header: null
+            }
         },
-    },
-    {
+    }, {
         tabBarComponent: TabBarBottom,
         tabBarPosition: 'bottom',
         swipeEnabled: true,
@@ -180,40 +210,77 @@ const Tab = TabNavigator(
         tabBarOptions: {
             activeTintColor: '#06C1AE',
             inactiveTintColor: '#979797',
-            style: { backgroundColor: '#ffffff' },
+            style: {
+                backgroundColor: '#ffffff'
+            },
         },
     }
 
 );
 
-const Navigator = StackNavigator(
-    {
-        Tab: { screen: Tab },
-        GroupPurchase: { screen: GroupPurchaseScene },
-        WebPage: {screen: WebScene},
-        Setting: {screen: SettingScene},
-        ScrollTabViewPage: {screen: ScrollTabViewDemo},
-        MultipleSelectedPage: {screen: MultipleSelectedDemo},
-        CalendarPage: {screen: CalendarDemo},
-        MyApplyPage: {screen: MyApplyDemo},
-        AntdMobilePage: {screen: AntdMobileDemo},
-        Gridpage: {screen: GridDemo},
-        AddImagesPage: {screen: AddImagesDemo},
-        AntdPickerImagePage: {screen: AntdPickerImageDemo},
-        ReduxDemoPage: {screen: ReduxDemo},
-        Beautypage: {screen: BeautyDemo},
-        ContactDemoPage: {screen: ContactDemo},
-        MobxDemoPage: {screen: MobxDemo},
-        CartMobxDemoPage: {screen: CartMobxDemo},
-        TimeLineDemoPage: {screen: TimeLineDemo}
+const Navigator = StackNavigator({
+    Tab: {
+        screen: Tab
     },
-    {
-        navigationOptions: {
-            // headerStyle: { backgroundColor: color.theme }
-            headerBackTitle: null,
-            headerTintColor: '#333333',
-            showIcon: true,
-        },
+    GroupPurchase: {
+        screen: GroupPurchaseScene
+    },
+    WebPage: {
+        screen: WebScene
+    },
+    Setting: {
+        screen: SettingScene
+    },
+    ScrollTabViewPage: {
+        screen: ScrollTabViewDemo
+    },
+    MultipleSelectedPage: {
+        screen: MultipleSelectedDemo
+    },
+    CalendarPage: {
+        screen: CalendarDemo
+    },
+    MyApplyPage: {
+        screen: MyApplyDemo
+    },
+    AntdMobilePage: {
+        screen: AntdMobileDemo
+    },
+    Gridpage: {
+        screen: GridDemo
+    },
+    AddImagesPage: {
+        screen: AddImagesDemo
+    },
+    AntdPickerImagePage: {
+        screen: AntdPickerImageDemo
+    },
+    ReduxDemoPage: {
+        screen: ReduxDemo
+    },
+    Beautypage: {
+        screen: BeautyDemo
+    },
+    ContactDemoPage: {
+        screen: ContactDemo
+    },
+    MobxDemoPage: {
+        screen: MobxDemo
+    },
+    CartMobxDemoPage: {
+        screen: CartMobxDemo
+    },
+    TimeLineDemoPage: {
+        screen: TimeLineDemo
+    },
+    ZXSportDemonPage: {
+        screen: ZXSportDemon
     }
-);
-
+}, {
+    navigationOptions: {
+        // headerStyle: { backgroundColor: color.theme }
+        headerBackTitle: null,
+        headerTintColor: '#333333',
+        showIcon: true,
+    },
+});
