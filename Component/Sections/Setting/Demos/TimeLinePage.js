@@ -95,6 +95,7 @@ export default class extends Component {
         );
     }
 
+    // 注意这里的rowData, sectionID, rowID, highlightRow要顺序
     renderItem(rowData, sectionID, rowID, highlightRow) {
         console.log('rowID--'+rowID);
         let length = this.state.orderStatuts.length - 1;
