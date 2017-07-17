@@ -7,20 +7,41 @@ import {
     TouchableOpacity,
     TouchableWithoutFeedback,
     Dimensions,
-    ActivityIndicator, ViewPropTypes
+    ActivityIndicator, 
+    ViewPropTypes,
+    ListView,
+    TouchableHighlight
 } from 'react-native';
 
 import PropTypes from 'prop-types';
 
 const TYPES = ['slide', 'fade', 'none'];
+const ds = new ListView.DataSource({
+      rowHasChanged: (r1, r2) => r1 !== r2
+});
 
 export default class PopView extends React.Component { 
     constructor(props) {
         super(props);
         this.state = {
-            text: '',
-            visible: false
-        };
+            visible: false,
+            dataSource: ds.cloneWithRows([
+                '1.选择一',
+                '2.选择2',
+                '3.选择3',
+                '4.选择4',
+                '5.选择5',
+                '6.选择6',
+                '7.选择7',
+                '8.选择8',
+                '9.选择9',
+                '10.选择10',
+            ]),
+            selectedText: ''
+         
+    };
+    
+    this.renderRow = this.renderRow.bind(this);
     }
 
      // 加载完成  
@@ -42,7 +63,6 @@ export default class PopView extends React.Component {
                 // 3.onShow function方法  
                 // 4.transparent bool  控制是否带有透明效果  
                 // 5.visible  bool 控制是否显示  
-
              */
             <Modal  
             animationType='slide'  
@@ -57,40 +77,109 @@ export default class PopView extends React.Component {
 
     renderContentView() {
         return (
-            <View style={styles.contentStyle}>
-               {/* {this.renderTitleView()}
-                {this.renderTableView()}
-            {this.renderBottomButtonView()}*/}
-            <Text></Text>
-            </View>
+            <TouchableOpacity style={styles.modalStyle}>
+                <View style={styles.contentStyle}>
+                 {/*标题*/}
+                   <View style={{height: 30, margin: 10}}>
+                        <Text style={{fontSize: 16, textAlign: 'center'}}>请选择</Text>
+                    </View>
+                   {/* {this.renderTableView()}
+                    {this.renderBottomButtonView()}*/}
+                     {/*列表*/}
+                    <View style={{height: 300, width: 300}}>
+                        <ListView
+                            dataSource={this.state.dataSource}
+                            renderRow={this.renderRow}
+                        />
+                    </View>
+                     {/*底部按钮*/}
+                    {/*{this.renderBottomButtonView()}*/}
+                    <View style={{backgroundColor: 'white', flex: 1, flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center'}}>
+                    <View style={styles.buttonStyle} >
+                      <Text style={styles.buttonText} onPress={()=>{
+                        //   alert('点击了取消');
+                          this.hide();
+                      }}>取消
+                      </Text>
+                      </View>
+                      <View style={styles.buttonStyle}>
+                       <Text style={styles.buttonText} onPress={()=>{
+                        //   alert('点击了确定');
+                        this.hide();
+                      }}>确定
+                      </Text>
+                      </View>
+                    </View>
+                </View>
+            </TouchableOpacity>
         );
     }
 
     renderTitleView() {
         return (
-            <View>
+            <View style={{height: 30, margin: 10}}>
+            <Text style={{fontSize: 16, textAlign: 'center'}}>请选择</Text>
             </View>
         );
     }
 
     renderTableView() {
         return (
-            <View>
-            </View>
+        <View style={{flex: 1, height: 300}}>
+            <ListView
+                dataSource={this.state.dataSource}
+                renderRow={this.renderRow}
+            />
+        </View>
         );
     }
 
+    renderRow(rowData) {
+        return (
+            // 传值注意:这样是接收不到值的 onPress={(rowData)=>this.didSelectItem(rowData,this)}
+            <TouchableOpacity onPress={()=>this.didSelectItem(rowData,this)}>
+                <View style = {styles.cellStyle}>
+                    <Text style = {styles.cellTextStyle}>
+                    {rowData}
+                    </Text>
+                </View>
+            </TouchableOpacity>
+        )
+  }
+
+  didSelectItem(rowData) {
+    //   alert(rowData)
+    this.setState({
+        selectedText: rowData,
+    });
+    this.hide();
+  }
+
     renderBottomButtonView() {
         return (
-            <View>
-            </View>
+           <View style={styles.buttonView}>  
+                 <TouchableHighlight underlayColor='transparent'  
+                   style={styles.buttonStyle}  
+                   onPress={this.hide()}>  
+                   <Text style={styles.buttonText}>  
+                     取消  
+                   </Text>  
+                 </TouchableHighlight>  
+                 <TouchableHighlight underlayColor='transparent'  
+                   style={styles.buttonStyle}  
+                   onPress={this.confiremBtnClicked()}>  
+                   <Text style={styles.buttonText}>  
+                     确定  
+                   </Text>  
+                 </TouchableHighlight>  
+            </View>  
         );
     }
 
      static defaultProps = {
          title: '', // 标题
-         cancleBtn: undefined,  // 取消按钮
-         confirmBtn: undefined  // 确认按钮
+         cancleBtn: '',  // 取消按钮
+         confirmBtn: ''  // 确认按钮
      }
 
      // 显示
@@ -109,12 +198,12 @@ export default class PopView extends React.Component {
 
      // 确定按钮被点击
      confiremBtnClicked = ()=> {
-
+         this.hide();
      }
 
      // 取消按钮被点击
      cancleBtnClicked = ()=> {
-
+         this.hide();
      }
 }
 
@@ -125,7 +214,7 @@ const styles = StyleSheet.create({
   },  
   // modal的样式  
   modalStyle: {  
-    // backgroundColor:'#ccc',  
+    backgroundColor:'rgba(0, 0, 0, 0.5)',  
     alignItems: 'center',  
     justifyContent:'center',  
     flex:1,  
@@ -167,23 +256,33 @@ const styles = StyleSheet.create({
     alignItems: 'center',  
   },  
   buttonStyle:{  
-    flex:1,  
-    height:44,  
+    height:30,
+    width: 60, 
     alignItems: 'center',  
-    justifyContent:'center',  
-  },  
-  // 竖直的分割线  
-  verticalLine:{  
-    width:0.5,  
-    height:44,  
-    backgroundColor:'#ccc',  
-  },  
+    justifyContent:'center',
+    borderRadius: 5,
+    borderColor: 'gray',
+    borderWidth: StyleSheet.hairlineWidth 
+  },    
   buttonText:{  
     fontSize:16,  
-    color:'#3393F2',  
+    color:'black',  
     textAlign:'center',  
   }, 
   contentStyle: {
-      backgroundColor: 'green'
-  } 
+      backgroundColor: 'white',
+      width: 300,
+      height: 400,
+  },
+ // cell
+  cellStyle: {
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: '#666',
+    flexDirection: 'row',
+    padding: 10
+  },
+  cellTextStyle: {
+    fontSize: 17,
+    textAlign: 'center'
+  }
 });  

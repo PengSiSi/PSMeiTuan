@@ -63,7 +63,9 @@ export default class extends Component {
         '12.Mobx学习',
         '13.Mobx实现购物车例子',
         '14.时间线实现',
-        '15.下拉菜单隐藏'
+        '15.下拉菜单隐藏',
+        '16.自定义Modal展示选择',
+        '17.下拉筛选选择'
       ])
     };
     this.renderRow = this.renderRow.bind(this);
@@ -207,6 +209,16 @@ export default class extends Component {
           this.props.navigation.navigate('ZXSportDemonPage')
           break;
         }
+      case '15':
+      {
+        this.popView.show();
+        break;
+      }
+      case '16':
+      {
+        this.props.navigation.navigate('DropDownDemo')
+        break;
+      }
       default:
         break;
     }
