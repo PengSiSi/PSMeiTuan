@@ -83,12 +83,20 @@ export default class extends Component {
           renderRow={this.renderRow}
         />
       <PopView 
-        ref={(ref)=>this.popView = ref}>
+        ref={(ref)=>this.popView = ref}
+        
+    selectItem = {
+      (data) => this._selectItem(data)
+    }
+
+        >
       </PopView>
       </View>
     );
   }
-
+  _selectItem(data){
+    console.log(data);
+  }
   renderRow(rowData, sectionID, rowID, highlightRow) {
     return (
       <View style = {styles.cellStyle}>
