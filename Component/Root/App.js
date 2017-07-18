@@ -36,6 +36,9 @@ import ContactDemo from './../Sections/Setting/Demos/ContactDemo';
 import MobxDemo from './../Sections/Setting/Demos/MobxDemo';
 import CartMobxDemo from './../Sections/Setting/Demos/CartMobxDemo';
 import TimeLineDemo from './../Sections/Setting/Demos/TimeLinePage';
+// <<<<<<< HEAD
+import DropDownSelectDemo from './../Sections/Setting/Demos/DropDownSelectDemo';
+
 import ZXSportDemon from './../Sections/Setting/Demos/ZXSportMenu';
 const lightContentScenes = ['Home', 'Mine']
 
@@ -275,7 +278,10 @@ const Navigator = StackNavigator({
     },
     ZXSportDemonPage: {
         screen: ZXSportDemon
-    }
+    },
+    DropDownDemo: {
+        screen: DropDownSelectDemo
+    },
 }, {
     navigationOptions: {
         // headerStyle: { backgroundColor: color.theme }

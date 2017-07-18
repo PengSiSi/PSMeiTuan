@@ -8,8 +8,8 @@ class Root extends React.Component {
 	render() {
 		return (
 			<Provider store={store}>
-        <App />
-      </Provider>
+				<App />
+			</Provider>
 		)
 	}
 }
