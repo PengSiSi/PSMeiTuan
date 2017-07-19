@@ -12,6 +12,7 @@ import {
 
 import Color from './../../../Config/Color';
 import DropDown from './../../../Common/DropDown';
+import EmptyOrFailView from './../../Setting/Demos/DropDownSelectDemo';
 
 const DEMO_OPTIONS_1 = ['option 1', 'option 2', 'option 3', 'option 4', 'option 5', 'option 6', 'option 7', 'option 8', 'option 9'];
 const DEMO_OPTIONS_2 = [
@@ -29,46 +30,61 @@ const DEMO_OPTIONS_2 = [
 export default class extends Component {
 
     static navigationOptions = ({
-    navigation,
-    screenProps
-  }) => ({
-    headerTitle: '下拉筛选选择Demo',
-    headerTitleStyle: {
-      color: 'white',
-      alignSelf: 'center' // 设置安卓端导航栏标题不居中显示
-    },
-    headerStyle: {
-      backgroundColor: Color.kMainColor // 设置导航栏的背景颜色,headerTintColor设置无效
-    },
+        navigation,
+        screenProps
+    }) => ({
+        headerTitle: '下拉筛选选择Demo',
+        headerTitleStyle: {
+        color: 'white',
+        alignSelf: 'center' // 设置安卓端导航栏标题不居中显示
+        },
+        headerStyle: {
+        backgroundColor: Color.kMainColor // 设置导航栏的背景颜色,headerTintColor设置无效
+        },
   });
 
   constructor(props) {
       super(props);
       this.state = {
           selectText: '',  // 下拉选择的值
+          isRenderEmptyOrFailView: false
       };
   }
 
     render() {
         return (
-            <View style={styles.container}>
-               <DropDown style={{flex: 1, width: 200}}
-                         options={DEMO_OPTIONS_1}
-                         dropdownStyle={{width: 200}}
-               >
-               <View style={{flexDirection: 'row',justifyContent:'center',alignItems: 'center', marginTop: 50}}>
-                <Text>选择吧</Text>
-                <Image source={require('./../../../Images/Setting/ss_ic_timepre@2x.png')}></Image>
-               </View>
-               </DropDown>
-               <DropDown style={{flex: 1, width: 200}}
-                         options={DEMO_OPTIONS_1}
-                         onSelect={(idx, value) => this.dropdownOnSelect(idx, value)}
-               >
-               {/*|| 表示如果前面为真，取前面的。前面为假，取后面。*/}
-               <Text>{this.state.selectText || '请选择'}</Text>
-               </DropDown>
-            </View>
+            this.state.isRenderEmptyOrFailView ? 
+                <View style={styles.container}>
+                <DropDown style={{flex: 1, width: 200}}
+                            options={DEMO_OPTIONS_1}
+                            dropdownStyle={{width: 200}}
+                >
+                <View style={{flexDirection: 'row',justifyContent:'center',alignItems: 'center', marginTop: 50}}>
+                    <Text>选择吧</Text>
+                    <Image source={require('./../../../Images/Setting/ss_ic_timepre@2x.png')}></Image>
+                </View>
+                </DropDown>
+                <DropDown style={{flex: 1, width: 200}}
+                            options={DEMO_OPTIONS_1}
+                            onSelect={(idx, value) => this.dropdownOnSelect(idx, value)}
+                >
+                    {/*|| 表示如果前面为真，取前面的。前面为假，取后面。*/}
+                    <Text>{this.state.selectText || '请选择'}</Text>
+                </DropDown>
+                </View>
+                :
+                this.renderEmptyOrFailView()
+        );
+    }
+
+    renderDropDown() {
+
+    }
+
+    renderEmptyOrFailView() {
+        return (
+            <EmptyOrFailView emptyOrFailTip='网络崩溃啦!' subTitle='点击重新加载哟'>
+            </EmptyOrFailView>
         );
     }
 
