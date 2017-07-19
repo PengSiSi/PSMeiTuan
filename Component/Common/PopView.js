@@ -10,7 +10,8 @@ import {
   ActivityIndicator,
   ViewPropTypes,
   ListView,
-  TouchableHighlight
+  TouchableHighlight,
+  Image
 } from 'react-native';
 
 import PropTypes from 'prop-types';
@@ -20,23 +21,35 @@ const ds = new ListView.DataSource({
   rowHasChanged: (r1, r2) => r1 !== r2
 });
 
+var items=[
+    {
+        id:1,
+        name:'选择一',
+        checked:true,
+    },
+    {
+        id:2,
+        name:'选择二',
+        checked:false,
+    },
+    {
+        id:3,
+        name:'选择三',
+        checked:false,
+    },
+    {
+        id:4,
+        name:'选择四',
+        checked:false,
+    }
+];
+
 export default class PopView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       visible: false,
-      dataSource: ds.cloneWithRows([
-        '1.选择一',
-        '2.选择2',
-        '3.选择3',
-        '4.选择4',
-        '5.选择5',
-        '6.选择6',
-        '7.选择7',
-        '8.选择8',
-        '9.选择9',
-        '10.选择10',
-      ]),
+      dataSource: items,
       selectedText: ''
 
     };
@@ -88,7 +101,7 @@ export default class PopView extends React.Component {
                      {/*列表*/}
                     <View style={{height: 300, width: 300}}>
                         <ListView
-                            dataSource={this.state.dataSource}
+                            dataSource={ds.cloneWithRows(this.state.dataSource)}
                             renderRow={this.renderRow}
                         />
                     </View>
@@ -135,19 +148,44 @@ export default class PopView extends React.Component {
   }
 
   renderRow(rowData) {
+    let selelctIcon = rowData.checked ? require('./../Images/Setting/selected@2x.png') : require('./../Images/Setting/f_hs_activities_-approval_batch_choose@2x.png');
     return (
       // 传值注意:这样是接收不到值的 onPress={(rowData)=>this.didSelectItem(rowData,this)}
       <TouchableOpacity onPress={this.didSelectItem.bind(this,rowData)}>
                 <View style = {styles.cellStyle}>
+                    <Image source={selelctIcon}>
+                    </Image>
                     <Text style = {styles.cellTextStyle}>
-                    {rowData}
+                    {rowData.name}
                     </Text>
                 </View>
             </TouchableOpacity>
     )
   }
 
+  // 单选操作
   didSelectItem(rowData) {
+       var array = this.state.dataSource.slice();
+        var item = [];
+        // 单选
+        for (let i = 0; i < array.length; i++) {
+            if (array[i].checked) {
+                array[i] = {...array[i], checked: false, name:array[i].name};
+            }
+        }
+        for (let i = 0; i < array.length; i++) {
+            if (array[i].id === rowData.id) {
+                array[i] = {...rowData, checked: true, name:array[i].name};
+                item = array[i];
+            }
+        }
+        this.state.dataSource = array;
+        this.setState({
+            selectItem:item,
+            // dataSource: this.state.dataSource.cloneWithRows(arr),
+        });
+
+    // 传递选择的值出去
     this.props.selectItem(rowData);
   }
 
@@ -279,6 +317,7 @@ const styles = StyleSheet.create({
   },
   cellTextStyle: {
     fontSize: 17,
-    textAlign: 'center'
+    textAlign: 'center',
+    marginLeft: 10
   }
 });

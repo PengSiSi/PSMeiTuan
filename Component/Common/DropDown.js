@@ -1,5 +1,6 @@
 /**
  * Created by sisi on 17/7/19.
+ * 下拉选择: https://github.com/sohobloo/react-native-modal-dropdown
  */
 
 'use strict';

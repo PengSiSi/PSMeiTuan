@@ -84,9 +84,9 @@ export default class extends Component {
         />
       <PopView 
         ref={(ref)=>this.popView = ref}
-        
-    selectItem = {
-      (data) => this._selectItem(data)
+        // Modal弹出选择的值
+        selectItem = {
+          (data) => this._selectItem(data)
     }
 
         >
@@ -97,6 +97,7 @@ export default class extends Component {
   _selectItem(data){
     console.log(data);
   }
+  
   renderRow(rowData, sectionID, rowID, highlightRow) {
     return (
       <View style = {styles.cellStyle}>
