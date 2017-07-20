@@ -28,14 +28,14 @@ export default class EmptyOrFailView extends Component {
             <View style={styles.container}>
                 {/*上部分*/}
                 <Image source={require('./../Images/Setting/ic_no_exist.png')}
-                       style={{width: 100, height: 100, marginTop: 10}}
+                       
                        resizeMode={'contain'}/>
                 {/*中间*/}
                 <Text style={{padding: 8, color: 'gray'}}>{emptyOrFailTip}</Text>
                 {/*下部分*/}
                 {
                 <TouchableOpacity activeOpacity={0.8}
-                                    onPress={() => this.props.reLoadData}>
+                                    onPress={this.props.reLoadData}>
                     <Text style={{color: 'gray'}}>{subTitle}</Text>
                 </TouchableOpacity>
                 }
@@ -48,8 +48,8 @@ export default class EmptyOrFailView extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        width: Space.kScreenWidth * 0.6,
-        height: Space.kScreenHeight * 0.6,
+        // width: Space.kScreenWidth,
+        // height: Space.kScreenHeight,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'white',

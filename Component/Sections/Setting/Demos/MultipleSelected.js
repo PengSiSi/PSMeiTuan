@@ -68,6 +68,7 @@ export default class extends Component {
       />
     );
   }
+  
   _renderRow(rowData) {
     let selelctIcon = rowData.isSelected ? require('./../../../Images/Mine/click@2x.png') : require('./../../../Images/Mine/not_click@2x.png');
     return (

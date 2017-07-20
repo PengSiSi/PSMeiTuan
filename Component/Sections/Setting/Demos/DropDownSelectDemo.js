@@ -12,7 +12,7 @@ import {
 
 import Color from './../../../Config/Color';
 import DropDown from './../../../Common/DropDown';
-import EmptyOrFailView from './../../Setting/Demos/DropDownSelectDemo';
+import EmptyOrFailView from './../../../Common/EmptyOrFailView';
 
 const DEMO_OPTIONS_1 = ['option 1', 'option 2', 'option 3', 'option 4', 'option 5', 'option 6', 'option 7', 'option 8', 'option 9'];
 const DEMO_OPTIONS_2 = [
@@ -77,19 +77,19 @@ export default class extends Component {
         );
     }
 
-    renderDropDown() {
-
-    }
-
     renderEmptyOrFailView() {
         return (
-            <EmptyOrFailView emptyOrFailTip='网络崩溃啦!' subTitle='点击重新加载哟'>
+            <EmptyOrFailView emptyOrFailTip='网络崩溃啦!' subTitle='点击重新加载哟' reLoadData={this.reloadData.bind(this)}>
             </EmptyOrFailView>
         );
     }
 
     dropDownView() {
         alert('弹出');
+    }
+
+    reloadData() {
+        alert('重新加载');
     }
 
     // 下拉选择
