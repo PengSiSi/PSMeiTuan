@@ -1,5 +1,7 @@
 /**
  * Created by 思思 on 17/5/7.
+ * 注意: 这里下拉选择的Demo和无网络展示的view共用一个页面,这里区分下this.state.isRenderEmptyOrFailView即可
+
  */
 import React, { Component } from 'react';
 import {

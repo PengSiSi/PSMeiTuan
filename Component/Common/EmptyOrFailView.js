@@ -1,6 +1,6 @@
 /**
  * 网络错误view
- */
+*/
 
 import React, { Component } from 'react';
 import {
@@ -28,7 +28,6 @@ export default class EmptyOrFailView extends Component {
             <View style={styles.container}>
                 {/*上部分*/}
                 <Image source={require('./../Images/Setting/ic_no_exist.png')}
-                       
                        resizeMode={'contain'}/>
                 {/*中间*/}
                 <Text style={{padding: 8, color: 'gray'}}>{emptyOrFailTip}</Text>
