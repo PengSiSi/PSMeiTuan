@@ -15,6 +15,7 @@
 		"react-expandable-listview": "^0.6.0",
 		"react-native": "0.44",
 		"react-native-calendars": "^1.4.0",
+		"react-native-camera": "^0.9.4",
 		"react-native-foldview": "^1.1.1",
 		"react-native-image-crop-picker": "^0.14.1",
 		"react-native-image-picker": "^0.26.3",
