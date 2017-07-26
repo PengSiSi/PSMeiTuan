@@ -65,7 +65,8 @@ export default class extends Component {
         '14.时间线实现',
         '15.下拉菜单隐藏',
         '16.自定义Modal展示选择',
-        '17.下拉筛选选择'
+        '17.下拉筛选选择',
+        '18.测试页面的复用'
       ])
     };
     this.renderRow = this.renderRow.bind(this);
@@ -226,6 +227,11 @@ export default class extends Component {
       case '16':
       {
         this.props.navigation.navigate('DropDownDemo')
+        break;
+      }
+      case '17':
+      {
+        this.props.navigation.navigate('TextDemo')
         break;
       }
       default:

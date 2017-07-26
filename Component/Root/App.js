@@ -40,6 +40,8 @@ import TimeLineDemo from './../Sections/Setting/Demos/TimeLinePage';
 import DropDownSelectDemo from './../Sections/Setting/Demos/DropDownSelectDemo';
 
 import ZXSportDemon from './../Sections/Setting/Demos/ZXSportMenu';
+import TextDemo from './../Sections/Setting/Demos/TextDemo';
+
 const lightContentScenes = ['Home', 'Mine']
 
 function getCurrentRouteName(navigationState) {
@@ -282,6 +284,9 @@ const Navigator = StackNavigator({
     DropDownDemo: {
         screen: DropDownSelectDemo
     },
+    TextDemo: {
+        screen: TextDemo
+    }
 }, {
     navigationOptions: {
         // headerStyle: { backgroundColor: color.theme }
