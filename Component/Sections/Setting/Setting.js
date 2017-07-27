@@ -67,7 +67,8 @@ export default class extends Component {
         '16.自定义Modal展示选择',
         '17.下拉筛选选择',
         '18.测试页面的复用',
-        '19.Video播放视频'
+        '19.Video播放视频',
+        '20.aurora-imui-Demo'
       ])
     };
     this.renderRow = this.renderRow.bind(this);
@@ -238,6 +239,11 @@ export default class extends Component {
       case '18':
       {
         this.props.navigation.navigate('VideoDemo')
+        break;
+      }
+      case '19':
+      {
+        this.props.navigation.navigate('IMUIDemo')
         break;
       }
       default:

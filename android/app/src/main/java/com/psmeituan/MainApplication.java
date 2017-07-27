@@ -32,7 +32,9 @@ public class MainApplication extends Application implements ReactApplication {
             new RCTCameraPackage(),
             new PickerPackage(),
             new PickerViewPackage(),
-            new ImagePickerPackage()
+            new ImagePickerPackage(),
+            new MainReactPackage(),
+            new ReactIMUIPackage()
       );
     }
   };

@@ -42,6 +42,7 @@ import DropDownSelectDemo from './../Sections/Setting/Demos/DropDownSelectDemo';
 import ZXSportDemon from './../Sections/Setting/Demos/ZXSportMenu';
 import TextDemo from './../Sections/Setting/Demos/TextDemo';
 import VideoDemo from './../Sections/Setting/Demos/VideoDemo';
+import IMUIDemo from './../Sections/Setting/Demos/IMUIDemo';
 
 const lightContentScenes = ['Home', 'Mine']
 
@@ -290,6 +291,9 @@ const Navigator = StackNavigator({
     },
     VideoDemo: {
         screen: VideoDemo
+    },
+    IMUIDemo: {
+        screen: IMUIDemo
     }
 }, {
     navigationOptions: {
