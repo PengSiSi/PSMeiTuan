@@ -29,7 +29,7 @@ export default class extends Component {
     constructor(props, updateState) {
         super(props);
         this.props = props;
-        this.baseCommon = new BaseCommon({...props,backPress:(e)=>this.onBackPress(e)});
+        this.baseCommon = new BaseCommon({...props,backPress:(e)=>this.onBackPress(e), title: '哈哈'});
         this.updateState = updateState;
     }
     onBackPress(e){

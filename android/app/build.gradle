@@ -150,6 +150,8 @@ signingConfig signingConfigs.release
 }
 
 dependencies {
+    compile project(':react-native-video')
+    compile project(':react-native-camera')
     compile project(':react-native-image-crop-picker')
     compile project(':react-native-picker')
     compile project(':react-native-image-picker')

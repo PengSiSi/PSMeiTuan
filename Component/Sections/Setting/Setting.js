@@ -66,7 +66,8 @@ export default class extends Component {
         '15.下拉菜单隐藏',
         '16.自定义Modal展示选择',
         '17.下拉筛选选择',
-        '18.测试页面的复用'
+        '18.测试页面的复用',
+        '19.Video播放视频'
       ])
     };
     this.renderRow = this.renderRow.bind(this);
@@ -232,6 +233,11 @@ export default class extends Component {
       case '17':
       {
         this.props.navigation.navigate('TextDemo')
+        break;
+      }
+      case '18':
+      {
+        this.props.navigation.navigate('VideoDemo')
         break;
       }
       default:
