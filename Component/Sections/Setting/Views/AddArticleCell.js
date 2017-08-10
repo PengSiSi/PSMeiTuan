@@ -23,10 +23,9 @@ export default class extends Component {
             <View style={styles.container}>
                 <View>
                     <Text style={styles.contentTextStyle} numberOfLines={0}>
-                        就是你的事觉得男生觉得男生丹尼斯克电脑上开电脑得男生丹尼斯克电脑上开电脑得男生丹尼斯克电脑上开电脑
+                        {this.props.content}
                     </Text>
                 </View>
-               
                {/*<Separator style={{marginTop: 10}}/>*/}
                <View style={{height: 0.5,backgroundColor: Color.kSeparatorColor}}></View>
                <View style={styles.buttonContainerStyle}>

@@ -28,10 +28,11 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'white',
+        paddingBottom: 10  // 设置图片的间距
     },
     imageViewStyle: {
         width: Space.kScreenWidth - 20,
         height: 150,
-        backgroundColor: 'green'
+        backgroundColor: 'green',
     }
 });
