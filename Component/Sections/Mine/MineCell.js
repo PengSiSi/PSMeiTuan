@@ -29,7 +29,7 @@ class MineCell extends PureComponent {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: 'white',
-        borderTopWidth:0.5,
+        borderTopWidth:StyleSheet.hairlineWidth,
         borderTopColor:'#ddd'
     },
     content: {

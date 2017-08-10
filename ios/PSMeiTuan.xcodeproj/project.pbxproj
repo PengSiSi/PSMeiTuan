@@ -56,6 +56,8 @@
 		F11403451F05D9E600087FD3 /* libimageCropPicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F11403291F05D9BD00087FD3 /* libimageCropPicker.a */; };
 		F11403571F06467800087FD3 /* libRCTCameraRoll.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F11403561F06464300087FD3 /* libRCTCameraRoll.a */; };
 		F137B7901F298351007A6086 /* RCTAuroraIMUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F137B7721F298218007A6086 /* RCTAuroraIMUI.framework */; };
+		F137B7911F2984FD007A6086 /* RCTAuroraIMUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F137B7721F298218007A6086 /* RCTAuroraIMUI.framework */; };
+		F137B7921F2984FD007A6086 /* RCTAuroraIMUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F137B7721F298218007A6086 /* RCTAuroraIMUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -304,6 +306,13 @@
 			remoteGlobalIDString = 623EA9A11EE55D0800EC43AE;
 			remoteInfo = RCTAuroraIMUITests;
 		};
+		F137B7931F2984FD007A6086 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EDA068B2F2B64DDBBD8AC632 /* RCTAuroraIMUI.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 623EA9981EE55D0800EC43AE;
+			remoteInfo = RCTAuroraIMUI;
+		};
 		F1D011271EFA60DA00C662DF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BF77D1A68A8B4FEF811EF0F7 /* RNImagePicker.xcodeproj */;
@@ -312,6 +321,20 @@
 			remoteInfo = RNImagePicker;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F137B7951F2984FD007A6086 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F137B7921F2984FD007A6086 /* RCTAuroraIMUI.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
@@ -386,6 +409,7 @@
 				F10AD9591F036F56002DC6F1 /* libRCTBEEPickerManager.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
+				F137B7911F2984FD007A6086 /* RCTAuroraIMUI.framework in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
 				00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */,
@@ -745,10 +769,12 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				F137B7951F2984FD007A6086 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				F137B7941F2984FD007A6086 /* PBXTargetDependency */,
 			);
 			name = PSMeiTuan;
 			productName = "Hello World";
@@ -1268,6 +1294,11 @@
 			target = 2D02E47A1E0B4A5D006451C7 /* PSMeiTuan-tvOS */;
 			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
 		};
+		F137B7941F2984FD007A6086 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RCTAuroraIMUI;
+			targetProxy = F137B7931F2984FD007A6086 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -1359,6 +1390,7 @@
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
@@ -1387,6 +1419,7 @@
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;

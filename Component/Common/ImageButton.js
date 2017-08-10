@@ -8,6 +8,7 @@ import {Image, TouchableWithoutFeedback} from 'react-native';
 
 export default class ImageButton extends Component {
     render() {
+        const {style, source, text} = this.props;
         return (
             <TouchableWithoutFeedback onPress={this.props.onPress}>
                 <Image
