@@ -16,8 +16,11 @@ import AddArticelBottmView from './../Views/AddArticleBottomView';
 import Space from './../../../Config/Space';
 import Color from './../../../Config/Color';
 import AddArticelCell from './../Views/AddArticleCell';
+import AddArticelImageCell from './../Views/AddArticleImageCell';
 
 var dataArr = [];
+var dataModel = {};
+
 export default class extends Component {
 
     static navigationOptions = ({navigation,screenProps}) => ({  
@@ -43,14 +46,21 @@ export default class extends Component {
         };
         this.renderRow = this.renderRow.bind(this);
   }
-
-
-     render() {
+    // 视图消失的时候清空数据源
+    // componentWillUnmount() {
+    //     dataArr = [];
+    //     this.setState({
+    //        dataSource: this.state.dataSource.cloneWithRows(dataArr)
+    //     });
+    // }
+  
+    render() {
         return (
             <View style={styles.container}>
                 <ListView
                     dataSource={this.state.dataSource}
                     renderRow={this.renderRow}
+                    style={{height: Space.kScreenHeight - 64}}
                     // renderFooter={this.renderFooter}
                     // renderHeader={this.renderHeader}
                     enableEmptySections
@@ -78,31 +88,59 @@ export default class extends Component {
     }
 
      // 具体的每行
-    renderRow(rowData) {
-        return(
-            // <View style={styles.cellStyle}>
-            //      <Text>{rowData}</Text>
-            // </View>
-            <AddArticelCell></AddArticelCell>
-        );
+    renderRow(rowData, sectionID, rowID, highlightRow) {
+        let cell = rowData.type === 'text' 
+        ? <AddArticelCell style={styles.cellStyle} 
+                deleteAction={this.deleteAction.bind(this, rowID)} 
+                editAction={this.editAction.bind(this)}>
+          </AddArticelCell>
+        : <AddArticelImageCell style={styles.cellStyle}></AddArticelImageCell>
+        return cell;
     }
 
+    // 添加文字
     pressAddText() {
-        alert('addText');
-        dataArr.push('1');
+        dataModel = {data: '1', type: 'text'};
+        dataArr.push(dataModel);
         this.setState({
            dataSource: this.state.dataSource.cloneWithRows(dataArr)
         });
     }
 
+    // 添加图片
     pressAddImage() {
-        alert('addImage');
+        dataModel = {data: '1', type: 'image'};
+        dataArr.push(dataModel);
+        this.setState({
+           dataSource: this.state.dataSource.cloneWithRows(dataArr)
+        });
+        // alert('addImage');
     }
-
+    
+    // 添加卡券
     pressAddCard() {
         alert('addCard');
     }
 
+    // 文本cell删除
+    deleteAction(rowID) {
+        alert(rowID);
+    }
+
+    removeItem(index) {
+        let data = this.state.dataSource;
+        for (var i = 0; i < data.length; i++) {
+            if (i == index) {
+                data.splice(i, 1);
+            }
+        }
+        return data;
+    }
+
+    // 文本cell编辑
+    editAction(rowData, sectionID, rowID, highlightRow) {
+        alert('edit');
+    }
 }
 
 const styles = StyleSheet.create({

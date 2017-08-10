@@ -4,7 +4,7 @@
  * Desc:
  */
 import React, {Component} from 'react';
-import {Image, TouchableWithoutFeedback} from 'react-native';
+import {Image, TouchableWithoutFeedback, Text} from 'react-native';
 
 export default class ImageButton extends Component {
     render() {
@@ -15,7 +15,7 @@ export default class ImageButton extends Component {
                     style={this.props.style}
                     source={this.props.source}
                 >
-                    {this.props.children}
+                <Text>添加文字</Text>
                 </Image>
             </TouchableWithoutFeedback>
         )
