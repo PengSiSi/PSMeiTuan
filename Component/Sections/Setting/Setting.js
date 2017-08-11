@@ -70,7 +70,8 @@ export default class extends Component {
         '19.Video播放视频',
         '20.aurora-imui-Demo',
         '21.历史搜索实现',
-        '22.动态添加文章'
+        '22.动态添加文章',
+        '23.Echarts的使用'
       ])
     };
     this.renderRow = this.renderRow.bind(this);
@@ -205,6 +206,11 @@ export default class extends Component {
           this.props.navigation.navigate('TimeLineDemoPage')
           break;
         }
+         case '14':
+        {
+          this.props.navigation.navigate('EchartsDemo')
+          break;
+        }
 // <<<<<<< HEAD
 //         case '14': {
 //           this.props.navigation.navigate('CellExpandDemoPage')
@@ -256,6 +262,11 @@ export default class extends Component {
        case '21':
       {
         this.props.navigation.navigate('AddArticelDemo')
+        break;
+      }
+      case '22':
+      {
+        this.props.navigation.navigate('EchartsDemo')
         break;
       }
       default:
