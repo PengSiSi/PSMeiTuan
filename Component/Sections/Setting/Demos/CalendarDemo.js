@@ -17,6 +17,7 @@ import {LocaleConfig} from 'react-native-calendars';
 
 import Color from './../../../Config/Color';
 import Space from './../../../Config/Space';
+import NavigationItem from './../../../Common/NavigationItem';
 
 LocaleConfig.locales['fr'] = {
   monthNames: ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
@@ -37,6 +38,15 @@ export default class extends Component {
         headerStyle: {
             backgroundColor: Color.kMainColor  // 设置导航栏的背景颜色,headerTintColor设置无效
         },
+        headerRight:(
+        <NavigationItem
+            title='Agenda'
+            // 这里注意: static里面不能使用this调用方法,出现clickFinishButton is not function
+            // 参考博客: http://www.jianshu.com/p/2f575cc35780
+            onPress={()=>navigation.state.params.navigatePress()}
+            // onPress = {()=>this.clickFinishButton()}
+        />
+    )
     }); 
 
     // 初始化模拟数据
@@ -55,7 +65,21 @@ export default class extends Component {
         this.onDayPress = this.onDayPress.bind(this);
     }
 
-    render() {
+    componentWillMount() {
+
+  }
+
+  componentDidMount(){
+    this.props.navigation.setParams({navigatePress:this.clickFinishButton})
+  }
+
+  // 点击导航栏右侧按钮
+  clickFinishButton = ()=> {
+    //   alert('点击了...');
+      this.props.navigation.navigate('AgendaScreen');
+  }
+
+  render() {
         return (
         <View style={{flex: 1}}>
         <ListView

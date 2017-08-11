@@ -45,6 +45,7 @@ import VideoDemo from './../Sections/Setting/Demos/VideoDemo';
 import IMUIDemo from './../Sections/Setting/Demos/IMUIDemo';
 import AddArticelDemo from './../Sections/Setting/Demos/AddArticleDemo';
 import SearchHistoryDemo from './../Sections/Setting/Demos/SearchHistoryDemo';
+import AgendaScreenDemo from './../Sections/Setting/Demos/AgendaScreen';
 
 const lightContentScenes = ['Home', 'Mine']
 
@@ -302,6 +303,9 @@ const Navigator = StackNavigator({
     },
     AddArticelDemo: {
         screen: AddArticelDemo
+    },
+    AgendaScreen: {
+        screen: AgendaScreenDemo
     }
 }, {
     navigationOptions: {
