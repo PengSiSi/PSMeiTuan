@@ -175,6 +175,7 @@ export default class extends Component {
         this.setState({
            data: dataArr 
         });
+        this.remove(rowID);
     }
 
     //保存数据
@@ -224,6 +225,17 @@ export default class extends Component {
                 });
             });
         })
+    }
+
+    remove(rowID) {
+        alert('移除');
+        AsyncStorage.removeItem('SP-'+ rowID + '-SP',this.state.dataSource,(error) =>{
+            if (error) {
+                console.log(error);
+                return;
+            }
+            console.log('数据移除成功!');
+        });
     }
 }
 
