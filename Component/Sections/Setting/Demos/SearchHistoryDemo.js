@@ -1,6 +1,7 @@
 
 /**
  * Created by 思思 on 17/8/9.
+ * // 安卓运行错误: http://blog.csdn.net/shenshibaoma/article/details/53171606
  * // 搜索历史Demo
  */
 import React, { Component } from 'react';
@@ -12,13 +13,14 @@ import {
     ListView,
     Image,
     TouchableHighlight,
-    AsyncStorage
+    AsyncStorage,
 } from 'react-native';
 
 import SearchBar from './../../../Common/SearchBar';
 import Space from './../../../Config/Space';
 import Color from './../../../Config/Color';
 import StorageUtil from './../../../Util/StorageUtil';
+import { WhiteSpace, WingBlank, Button, Flex, ActivityIndicator } from 'antd-mobile';
 
 var dataArr = [];
 var dataModel = {};
@@ -41,10 +43,19 @@ export default class extends Component {
         this.state = {
                 data: [],
                 i: 0,
+                animating: false,
             };
         this.renderRow = this.renderRow.bind(this);
         this.renderHeader = this.renderHeader.bind(this);
+        this.loadingToast = this.loadingToast.bind(this);
     }
+
+    loadingToast() {
+        this.setState({ animating: !this.state.animating });
+        this.closeTimer = setTimeout(() => {
+        this.setState({ animating: !this.state.animating });
+        }, 2000);
+  }
 
     compennetDidUnmount(){  
         // sqLite.close();  
@@ -106,6 +117,12 @@ export default class extends Component {
         });
         return (
             <View style={styles.container}>
+               <ActivityIndicator
+                    animating={this.state.animating}
+                    toast
+                    size="large"
+                    text="Loading..."
+                    />
                 <SearchBar style={styles.searchBarStyle} text='请输入搜索内容' onSubmit={(text)=>{
                         let model = {'id': this.state.i, 'text': text};
                         dataArr.push(model);
@@ -138,6 +155,9 @@ export default class extends Component {
                     // onEndReached={this.loadMore}
                     onEndReachedThreshold={30}
                 />
+                 <WingBlank>
+                    <Button onClick={this.loadingToast}>Click to show Toast</Button>
+                </WingBlank>
             </View>
         );
     }
@@ -176,28 +196,6 @@ export default class extends Component {
            data: dataArr 
         });
         this.remove(rowID);
-    }
-
-    //保存数据
-    save() {
-        // alert('保存数据');
-        //设置多项
-        var keyValuePairs = [['text', this.state.dataSource]]
-        // AsyncStorage.multiSet(keyValuePairs, function(errs){
-        // if(errs){
-        //     //TODO：存储出错
-        //     console.log()
-        //     return;
-        // }
-        // alert('数据保存成功!');
-        // });
-        AsyncStorage.setItem('text',this.state.dataSource,(error) =>{
-            if (error) {
-                console.log(error);
-                return;
-            }
-            console.log('数据保存成功!');
-        });
     }
 
     get() {
@@ -255,5 +253,23 @@ const styles = StyleSheet.create({
         padding: 10,
         justifyContent: 'space-between',
         flexDirection: 'row'
-    }
+    },
+    demo: {
+    marginTop: 20,
+  },
+  darkBg: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 50,
+    height: 50,
+    backgroundColor: '#2B2F42',
+  },
+  gray: {
+    backgroundColor: '#CCC',
+  },
+  horizontal: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    padding: 8,
+  },
 });

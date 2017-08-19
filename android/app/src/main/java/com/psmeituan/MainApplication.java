@@ -33,8 +33,7 @@ public class MainApplication extends Application implements ReactApplication {
             new PickerPackage(),
             new PickerViewPackage(),
             new ImagePickerPackage(),
-            new MainReactPackage(),
-            new ReactIMUIPackage()
+            new MainReactPackage()
       );
     }
   };
