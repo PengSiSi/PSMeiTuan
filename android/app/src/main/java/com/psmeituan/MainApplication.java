@@ -3,6 +3,7 @@ package com.psmeituan;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.RNFetchBlob.RNFetchBlobPackage;
 import com.brentvatne.react.ReactVideoPackage;
 import com.lwansbrough.RCTCamera.RCTCameraPackage;
 import com.reactnative.ivpusic.imagepicker.PickerPackage;
@@ -15,6 +16,7 @@ import com.facebook.soloader.SoLoader;
 
 import java.util.Arrays;
 import java.util.List;
+import org.pgsqlite.SQLitePluginPackage;
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -28,13 +30,15 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNFetchBlobPackage(),
             new ReactVideoPackage(),
             new RCTCameraPackage(),
             new PickerPackage(),
             new PickerViewPackage(),
             new ImagePickerPackage(),
             new MainReactPackage(),
-            new ReactIMUIPackage()
+            new ReactIMUIPackage(),
+            new SQLitePluginPackage()
       );
     }
   };

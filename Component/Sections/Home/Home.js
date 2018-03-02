@@ -23,6 +23,9 @@ import API from './../../Config/Api';
 import SpaceView from './../../Common/SpaceView';
 import HomeGridView from './HomeGridView';
 import HomeCell from './HomeCell';
+// import SQLite from './../../Util/SQLiteStorage';
+
+// var sqlite = new SQLite();
 
 export default class extends Component {
     // 设置导航栏样式
@@ -117,6 +120,12 @@ export default class extends Component {
         // 视图一进来就进行刷新
         this.setState({ refreshing: true })
         this.requestData()
+        // 打开数据库,创建表
+        // sqlite.createTable();
+    }
+
+    componentWillUnmount(){
+        // sqlite.close();
     }
 
     requestData() {

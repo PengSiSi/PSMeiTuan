@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -47,6 +46,10 @@
 		7291D48E75AE410CA5165975 /* libRCTCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DF67FEAE4FC4685A44EDB1E /* libRCTCamera.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		8991425B1604460297E85AC4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4201563EB8CF452CB705F614 /* CoreGraphics.framework */; };
+		8B2F76CFC9E844AFB8B30192 /* libRNFetchBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E793BEE9F87448F998942DD /* libRNFetchBlob.a */; };
+		8F93BA35355D4868B2944E3A /* libSQLite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA06800D510042FC8A802AE6 /* libSQLite.a */; };
+		A6CB71CB036D448D9307CF25 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E22AB79FD5041979DDB7165 /* libsqlite3.0.tbd */; };
+		B285A9A0779770C4C8E6B14E /* libPods-PSMeiTuan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EEB5B0D2A99565A078A250E4 /* libPods-PSMeiTuan.a */; };
 		C271E79E5B8149B9B1B4A555 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07985286732642E4B6A15B98 /* SystemConfiguration.framework */; };
 		F10AD9591F036F56002DC6F1 /* libRCTBEEPickerManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F10AD9361F035AE9002DC6F1 /* libRCTBEEPickerManager.a */; };
 		F10AD95D1F038DBC002DC6F1 /* ReactView.m in Sources */ = {isa = PBXBuildFile; fileRef = F10AD95C1F038DBC002DC6F1 /* ReactView.m */; };
@@ -55,8 +58,6 @@
 		F10AD9671F039E12002DC6F1 /* NextRNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F10AD9661F039E12002DC6F1 /* NextRNViewController.m */; };
 		F11403451F05D9E600087FD3 /* libimageCropPicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F11403291F05D9BD00087FD3 /* libimageCropPicker.a */; };
 		F11403571F06467800087FD3 /* libRCTCameraRoll.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F11403561F06464300087FD3 /* libRCTCameraRoll.a */; };
-		F137B7901F298351007A6086 /* RCTAuroraIMUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F137B7721F298218007A6086 /* RCTAuroraIMUI.framework */; };
-		F137B7911F2984FD007A6086 /* RCTAuroraIMUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F137B7721F298218007A6086 /* RCTAuroraIMUI.framework */; };
 		F137B7921F2984FD007A6086 /* RCTAuroraIMUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F137B7721F298218007A6086 /* RCTAuroraIMUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
@@ -257,6 +258,13 @@
 			remoteGlobalIDString = 17D41E551D7EE0CA0031415E;
 			remoteInfo = RCTBEEPickerManager;
 		};
+		F1116F0B2048F47D00C32F86 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FBEF54B797F44869BF029C45 /* RNFetchBlob.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A15C300E1CD25C330074CB35;
+			remoteInfo = RNFetchBlob;
+		};
 		F11403281F05D9BD00087FD3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F5FD944DFCB548E781719F3D /* imageCropPicker.xcodeproj */;
@@ -320,6 +328,13 @@
 			remoteGlobalIDString = 014A3B5C1C6CF33500B6D375;
 			remoteInfo = RNImagePicker;
 		};
+		F1F32EB21F3D90C100A7DFBF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B4A071F18EC403BBC72C87A /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E23D7B471ACEFE2A00C59171;
+			remoteInfo = SQLite;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -368,16 +383,22 @@
 		52DB80CF40DF4976A28D21DE /* CoreTelephony.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		5BFA18AF4920454F9D3271BE /* libRCTVideo.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTVideo.a; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
+		6E793BEE9F87448F998942DD /* libRNFetchBlob.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFetchBlob.a; sourceTree = "<group>"; };
 		6E882B637B244A409ECC7C9E /* libRNImagePicker.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNImagePicker.a; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
+		7B4A071F18EC403BBC72C87A /* SQLite.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "../node_modules/react-native-sqlite-storage/src/ios/SQLite.xcodeproj"; sourceTree = "<group>"; };
 		7DEE4F85E7DA410FABD3EB6F /* libz.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		818A6CAFC75F4EBEBC9F6537 /* CFNetwork.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		97C05E59AF1C92CC77A8DEB2 /* Pods-PSMeiTuan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PSMeiTuan.release.xcconfig"; path = "Pods/Target Support Files/Pods-PSMeiTuan/Pods-PSMeiTuan.release.xcconfig"; sourceTree = "<group>"; };
+		9E22AB79FD5041979DDB7165 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		A0B85F34502048B8923B256C /* RCTCamera.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTCamera.xcodeproj; path = "../node_modules/react-native-camera/ios/RCTCamera.xcodeproj"; sourceTree = "<group>"; };
 		BF77D1A68A8B4FEF811EF0F7 /* RNImagePicker.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNImagePicker.xcodeproj; path = "../node_modules/react-native-image-picker/ios/RNImagePicker.xcodeproj"; sourceTree = "<group>"; };
 		CE04827B3B974B248F887A9E /* UIKit.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DE11B023BD77064E37974130 /* Pods-PSMeiTuan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PSMeiTuan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PSMeiTuan/Pods-PSMeiTuan.debug.xcconfig"; sourceTree = "<group>"; };
 		EAA5CD9163194554B447F429 /* libAuroraIMUI.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libAuroraIMUI.a; sourceTree = "<group>"; };
 		EDA068B2F2B64DDBBD8AC632 /* RCTAuroraIMUI.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTAuroraIMUI.xcodeproj; path = "../node_modules/aurora-imui-react-native/ReactNative/ios/RCTAuroraIMUI.xcodeproj"; sourceTree = "<group>"; };
+		EEB5B0D2A99565A078A250E4 /* libPods-PSMeiTuan.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PSMeiTuan.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F10AD95B1F038DBC002DC6F1 /* ReactView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReactView.h; sourceTree = "<group>"; };
 		F10AD95C1F038DBC002DC6F1 /* ReactView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReactView.m; sourceTree = "<group>"; };
 		F10AD95F1F039010002DC6F1 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
@@ -388,6 +409,8 @@
 		F10AD9661F039E12002DC6F1 /* NextRNViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NextRNViewController.m; sourceTree = "<group>"; };
 		F11403511F06464200087FD3 /* RCTCameraRoll.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTCameraRoll.xcodeproj; path = "../node_modules/react-native/Libraries/CameraRoll/RCTCameraRoll.xcodeproj"; sourceTree = "<group>"; };
 		F5FD944DFCB548E781719F3D /* imageCropPicker.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = imageCropPicker.xcodeproj; path = "../node_modules/react-native-image-crop-picker/ios/imageCropPicker.xcodeproj"; sourceTree = "<group>"; };
+		FA06800D510042FC8A802AE6 /* libSQLite.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libSQLite.a; sourceTree = "<group>"; };
+		FBEF54B797F44869BF029C45 /* RNFetchBlob.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFetchBlob.xcodeproj; path = "../node_modules/react-native-fetch-blob/ios/RNFetchBlob.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -403,13 +426,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F137B7901F298351007A6086 /* RCTAuroraIMUI.framework in Frameworks */,
 				F11403571F06467800087FD3 /* libRCTCameraRoll.a in Frameworks */,
 				F11403451F05D9E600087FD3 /* libimageCropPicker.a in Frameworks */,
 				F10AD9591F036F56002DC6F1 /* libRCTBEEPickerManager.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
-				F137B7911F2984FD007A6086 /* RCTAuroraIMUI.framework in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
 				00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */,
@@ -431,6 +452,10 @@
 				4B0EC2F6CFDE42DE96B78153 /* Foundation.framework in Frameworks */,
 				25CAED5079C4494BB10EC347 /* UIKit.framework in Frameworks */,
 				8991425B1604460297E85AC4 /* CoreGraphics.framework in Frameworks */,
+				B285A9A0779770C4C8E6B14E /* libPods-PSMeiTuan.a in Frameworks */,
+				8F93BA35355D4868B2944E3A /* libSQLite.a in Frameworks */,
+				A6CB71CB036D448D9307CF25 /* libsqlite3.0.tbd in Frameworks */,
+				8B2F76CFC9E844AFB8B30192 /* libRNFetchBlob.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -608,6 +633,8 @@
 				A0B85F34502048B8923B256C /* RCTCamera.xcodeproj */,
 				34934F61629B4B909D4C6453 /* RCTVideo.xcodeproj */,
 				EDA068B2F2B64DDBBD8AC632 /* RCTAuroraIMUI.xcodeproj */,
+				7B4A071F18EC403BBC72C87A /* SQLite.xcodeproj */,
+				FBEF54B797F44869BF029C45 /* RNFetchBlob.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -629,6 +656,8 @@
 				00E356EF1AD99517003FC87E /* PSMeiTuanTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				88576336A82E4911866A4C5C /* Frameworks */,
+				E31187AA372663E880DD9914 /* Pods */,
+				F10005402011E6CB00071D44 /* Recovered References */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -656,8 +685,32 @@
 				37D61AF51EF84BFBB7F60EE3 /* Foundation.framework */,
 				CE04827B3B974B248F887A9E /* UIKit.framework */,
 				4201563EB8CF452CB705F614 /* CoreGraphics.framework */,
+				EEB5B0D2A99565A078A250E4 /* libPods-PSMeiTuan.a */,
+				9E22AB79FD5041979DDB7165 /* libsqlite3.0.tbd */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E31187AA372663E880DD9914 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DE11B023BD77064E37974130 /* Pods-PSMeiTuan.debug.xcconfig */,
+				97C05E59AF1C92CC77A8DEB2 /* Pods-PSMeiTuan.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F10005402011E6CB00071D44 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				6E882B637B244A409ECC7C9E /* libRNImagePicker.a */,
+				2DF67FEAE4FC4685A44EDB1E /* libRCTCamera.a */,
+				5BFA18AF4920454F9D3271BE /* libRCTVideo.a */,
+				EAA5CD9163194554B447F429 /* libAuroraIMUI.a */,
+				FA06800D510042FC8A802AE6 /* libSQLite.a */,
+				6E793BEE9F87448F998942DD /* libRNFetchBlob.a */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		F10AD92F1F035AE9002DC6F1 /* Products */ = {
@@ -688,6 +741,14 @@
 			);
 			name = Controller;
 			path = PSMeiTuan/Controller;
+			sourceTree = "<group>";
+		};
+		F1116F082048F46400C32F86 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F1116F0C2048F47D00C32F86 /* libRNFetchBlob.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		F11403251F05D9BC00087FD3 /* Products */ = {
@@ -740,6 +801,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		F1F32E8E1F3D90C100A7DFBF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F1F32EB31F3D90C100A7DFBF /* libSQLite.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -765,11 +834,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "PSMeiTuan" */;
 			buildPhases = (
+				FB66FA8F3B0112697FE0FA5A /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				F137B7951F2984FD007A6086 /* Embed Frameworks */,
+				6B37F127317D016627B7A324 /* [CP] Embed Pods Frameworks */,
+				CC60662D63836CAD63B55C00 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -829,6 +901,9 @@
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = 5ALN272SKE;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -922,8 +997,16 @@
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 				},
 				{
+					ProductGroup = F1116F082048F46400C32F86 /* Products */;
+					ProjectRef = FBEF54B797F44869BF029C45 /* RNFetchBlob.xcodeproj */;
+				},
+				{
 					ProductGroup = F1D0110B1EFA60DA00C662DF /* Products */;
 					ProjectRef = BF77D1A68A8B4FEF811EF0F7 /* RNImagePicker.xcodeproj */;
+				},
+				{
+					ProductGroup = F1F32E8E1F3D90C100A7DFBF /* Products */;
+					ProjectRef = 7B4A071F18EC403BBC72C87A /* SQLite.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -1119,6 +1202,13 @@
 			remoteRef = F10AD9351F035AE9002DC6F1 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		F1116F0C2048F47D00C32F86 /* libRNFetchBlob.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNFetchBlob.a;
+			remoteRef = F1116F0B2048F47D00C32F86 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		F11403291F05D9BD00087FD3 /* libimageCropPicker.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1173,6 +1263,13 @@
 			fileType = archive.ar;
 			path = libRNImagePicker.a;
 			remoteRef = F1D011271EFA60DA00C662DF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F1F32EB31F3D90C100A7DFBF /* libSQLite.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSQLite.a;
+			remoteRef = F1F32EB21F3D90C100A7DFBF /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -1239,6 +1336,51 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/packager/react-native-xcode.sh";
+		};
+		6B37F127317D016627B7A324 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PSMeiTuan/Pods-PSMeiTuan-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CC60662D63836CAD63B55C00 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PSMeiTuan/Pods-PSMeiTuan-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB66FA8F3B0112697FE0FA5A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1330,12 +1472,16 @@
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
 					"$(SRCROOT)/../node_modules/react-native-video/ios",
 					"$(SRCROOT)/../node_modules/aurora-imui-react-native/iOS/IMUIMessageCollectionView/**",
+					"$(SRCROOT)/../node_modules/react-native-sqlite-storage/src/ios",
+					"$(SRCROOT)/../node_modules/react-native-fetch-blob/ios/**",
 				);
 				INFOPLIST_FILE = PSMeiTuanTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1365,12 +1511,16 @@
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
 					"$(SRCROOT)/../node_modules/react-native-video/ios",
 					"$(SRCROOT)/../node_modules/aurora-imui-react-native/iOS/IMUIMessageCollectionView/**",
+					"$(SRCROOT)/../node_modules/react-native-sqlite-storage/src/ios",
+					"$(SRCROOT)/../node_modules/react-native-fetch-blob/ios/**",
 				);
 				INFOPLIST_FILE = PSMeiTuanTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1389,11 +1539,13 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE11B023BD77064E37974130 /* Pods-PSMeiTuan.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = 5ALN272SKE;
 				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1403,6 +1555,8 @@
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
 					"$(SRCROOT)/../node_modules/react-native-video/ios",
 					"$(SRCROOT)/../node_modules/aurora-imui-react-native/iOS/IMUIMessageCollectionView/**",
+					"$(SRCROOT)/../node_modules/react-native-sqlite-storage/src/ios",
+					"$(SRCROOT)/../node_modules/react-native-fetch-blob/ios/**",
 				);
 				INFOPLIST_FILE = PSMeiTuan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1418,10 +1572,12 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 97C05E59AF1C92CC77A8DEB2 /* Pods-PSMeiTuan.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5ALN272SKE;
 				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1431,6 +1587,8 @@
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
 					"$(SRCROOT)/../node_modules/react-native-video/ios",
 					"$(SRCROOT)/../node_modules/aurora-imui-react-native/iOS/IMUIMessageCollectionView/**",
+					"$(SRCROOT)/../node_modules/react-native-sqlite-storage/src/ios",
+					"$(SRCROOT)/../node_modules/react-native-fetch-blob/ios/**",
 				);
 				INFOPLIST_FILE = PSMeiTuan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1464,11 +1622,15 @@
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
 					"$(SRCROOT)/../node_modules/react-native-video/ios",
 					"$(SRCROOT)/../node_modules/aurora-imui-react-native/iOS/IMUIMessageCollectionView/**",
+					"$(SRCROOT)/../node_modules/react-native-sqlite-storage/src/ios",
+					"$(SRCROOT)/../node_modules/react-native-fetch-blob/ios/**",
 				);
 				INFOPLIST_FILE = "PSMeiTuan-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1508,11 +1670,15 @@
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
 					"$(SRCROOT)/../node_modules/react-native-video/ios",
 					"$(SRCROOT)/../node_modules/aurora-imui-react-native/iOS/IMUIMessageCollectionView/**",
+					"$(SRCROOT)/../node_modules/react-native-sqlite-storage/src/ios",
+					"$(SRCROOT)/../node_modules/react-native-fetch-blob/ios/**",
 				);
 				INFOPLIST_FILE = "PSMeiTuan-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1553,6 +1719,8 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.PSMeiTuan-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1577,6 +1745,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",

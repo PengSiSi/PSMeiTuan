@@ -48,6 +48,9 @@ import SearchHistoryDemo from './../Sections/Setting/Demos/SearchHistoryDemo';
 import AgendaScreenDemo from './../Sections/Setting/Demos/AgendaScreen';
 import EchartsDemo from './../Sections/Setting/Demos/EchartsDemo';
 
+import LearnDemo from './../Sections/Setting/LearnDemo';
+import defaultImageDemo from './../Sections/Setting/Demos1/DefaultImageDemo';
+
 const lightContentScenes = ['Home', 'Mine']
 
 function getCurrentRouteName(navigationState) {
@@ -310,6 +313,12 @@ const Navigator = StackNavigator({
     },
     EchartsDemo: {
         screen: EchartsDemo
+    },
+    DefaultImageDemo: {
+        screen: defaultImageDemo
+    },
+    LearnDemo: {
+        screen: LearnDemo
     }
 }, {
     navigationOptions: {

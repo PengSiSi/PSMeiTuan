@@ -59,6 +59,7 @@ export default class extends Component {
                 <NavigationItem
                     icon={require('./../../Images/Mine/icon_navigationItem_message_white.png')}
                     onPress={() => {
+                        navigation.navigate('LearnDemo');
                     }}
                 />
             </View>

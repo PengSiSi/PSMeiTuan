@@ -1,0 +1,28 @@
+PODS:
+  - React (0.44.3):
+    - React/Core (= 0.44.3)
+  - React/Core (0.44.3):
+    - React/cxxreact
+    - Yoga (= 0.44.3.React)
+  - React/cxxreact (0.44.3):
+    - React/jschelpers
+  - React/jschelpers (0.44.3)
+  - Yoga (0.44.3.React)
+
+DEPENDENCIES:
+  - React (from `../node_modules/react-native`)
+  - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
+
+EXTERNAL SOURCES:
+  React:
+    :path: "../node_modules/react-native"
+  Yoga:
+    :path: "../node_modules/react-native/ReactCommon/yoga"
+
+SPEC CHECKSUMS:
+  React: 6361345ebeb769a929e10a06baf0c868d6d03ad5
+  Yoga: c90474ca3ec1edba44c97b6c381f03e222a9e287
+
+PODFILE CHECKSUM: d324934981dd16d9cd263575267aa815200b36a2
+
+COCOAPODS: 1.3.0.beta.1

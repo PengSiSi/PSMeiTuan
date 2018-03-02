@@ -150,6 +150,8 @@ signingConfig signingConfigs.release
 }
 
 dependencies {
+    compile project(':react-native-fetch-blob')
+    compile project(':react-native-sqlite-storage')
     compile project(':aurora-imui-react-native')
     compile project(':react-native-video')
     compile project(':react-native-camera')

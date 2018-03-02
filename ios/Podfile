@@ -1,0 +1,9 @@
+target 'PSMeiTuan' do
+platform :ios, ‘8.0’
+
+
+pod "Yoga", :path => "../node_modules/react-native/ReactCommon/yoga"
+pod 'React', :path => '../node_modules/react-native'
+#pod 'react-native-sqlite-storage', :path => '../node_modules/react-native-sqlite-storage'
+
+end
