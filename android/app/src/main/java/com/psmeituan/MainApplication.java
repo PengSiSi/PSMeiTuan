@@ -36,9 +36,13 @@ public class MainApplication extends Application implements ReactApplication {
             new PickerPackage(),
             new PickerViewPackage(),
             new ImagePickerPackage(),
+<<<<<<< HEAD
             new MainReactPackage(),
             new ReactIMUIPackage(),
             new SQLitePluginPackage()
+=======
+            new MainReactPackage()
+>>>>>>> 00a299dd020c3ecb44bb35c067bdf8ef936ec40e
       );
     }
   };

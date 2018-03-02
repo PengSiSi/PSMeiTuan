@@ -1,8 +1,11 @@
 rootProject.name = 'PSMeiTuan'
+<<<<<<< HEAD
 include ':react-native-fetch-blob'
 project(':react-native-fetch-blob').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-fetch-blob/android')
 include ':app', ':aurora-imui-react-native'
 project(':aurora-imui-react-native').projectDir = new File(rootProject.projectDir, '../node_modules/aurora-imui-react-native/ReactNative/android')
+=======
+>>>>>>> 00a299dd020c3ecb44bb35c067bdf8ef936ec40e
 include ':react-native-video'
 project(':react-native-video').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-video/android')
 include ':react-native-camera'

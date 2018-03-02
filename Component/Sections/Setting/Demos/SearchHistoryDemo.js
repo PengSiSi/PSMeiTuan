@@ -1,6 +1,7 @@
 
 /**
  * Created by 思思 on 17/8/9.
+ * // 安卓运行错误: http://blog.csdn.net/shenshibaoma/article/details/53171606
  * // 搜索历史Demo
  */
 import React, { Component } from 'react';
